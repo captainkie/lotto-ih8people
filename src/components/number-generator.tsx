@@ -52,7 +52,7 @@ export function NumberGenerator({ draws }: { draws: Draw[] }) {
               <div className="mb-2 text-xs text-muted-foreground">
                 รางวัลที่ 1 (6 ตัว)
               </div>
-              <div className="grid grid-cols-6 gap-1 sm:gap-1.5">
+              <div className="grid max-w-sm grid-cols-6 gap-1 sm:gap-1.5">
                 {first.map((d, i) => (
                   <NumberBall key={i} value={d} fluid highlight />
                 ))}

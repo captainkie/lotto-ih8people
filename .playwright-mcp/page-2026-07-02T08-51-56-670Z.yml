@@ -1,0 +1,726 @@
+- generic [active] [ref=f2e1]:
+  - banner [ref=f2e2]:
+    - generic [ref=f2e3]:
+      - link "Lotto Stats Lotto Stats lotto.ih8people" [ref=f2e4] [cursor=pointer]:
+        - /url: /#top
+        - img "Lotto Stats" [ref=f2e5]:
+          - generic [ref=f2e9]: "88"
+        - generic [ref=f2e11]:
+          - generic [ref=f2e12]: Lotto Stats
+          - generic [ref=f2e13]: lotto.ih8people
+      - navigation [ref=f2e14]:
+        - link "หน้าแรก" [ref=f2e15] [cursor=pointer]:
+          - /url: "#top"
+        - link "เลขท้าย 2 ตัว" [ref=f2e16] [cursor=pointer]:
+          - /url: "#last2"
+        - link "รางวัลที่ 1" [ref=f2e17] [cursor=pointer]:
+          - /url: "#first-prize"
+        - link "ประวัติย้อนหลัง" [ref=f2e18] [cursor=pointer]:
+          - /url: "#history"
+  - main [ref=f2e19]:
+    - generic [ref=f2e20]:
+      - generic [ref=f2e21]:
+        - generic [ref=f2e22]:
+          - generic [ref=f2e23]: ผลรางวัลสลากกินแบ่งรัฐบาลงวดล่าสุด
+          - generic [ref=f2e24]: 1 กรกฎาคม 2569
+          - generic [ref=f2e25]:
+            - generic [ref=f2e26]:
+              - generic [ref=f2e27]: รางวัลที่ 1
+              - generic [ref=f2e28]:
+                - generic [ref=f2e29]: "7"
+                - generic [ref=f2e30]: "5"
+                - generic [ref=f2e31]: "1"
+                - generic [ref=f2e32]: "4"
+                - generic [ref=f2e33]: "9"
+                - generic [ref=f2e34]: "5"
+            - generic [ref=f2e35]:
+              - generic [ref=f2e36]: เลขท้าย 2 ตัว
+              - generic [ref=f2e37]: "62"
+        - generic [ref=f2e38]:
+          - generic [ref=f2e39]:
+            - generic [ref=f2e40]:
+              - img [ref=f2e41]
+              - text: เลขแนะนำงวดถัดไป
+              - generic [ref=f2e44]: — 16 กรกฎาคม 2569
+            - generic [ref=f2e45]: คำนวณจากความถี่ + เลขไม่ออกนาน (ถ่วงน้ำหนักตามหลักความน่าจะเป็น)
+          - generic [ref=f2e46]:
+            - generic [ref=f2e47]:
+              - generic [ref=f2e48]: รางวัลที่ 1
+              - generic [ref=f2e49]:
+                - generic [ref=f2e50]: "0"
+                - generic [ref=f2e51]: "2"
+                - generic [ref=f2e52]: "2"
+                - generic [ref=f2e53]: "6"
+                - generic [ref=f2e54]: "4"
+                - generic [ref=f2e55]: "0"
+            - generic [ref=f2e56]:
+              - generic [ref=f2e57]: เลขท้าย 2 ตัว
+              - generic [ref=f2e58]:
+                - generic [ref=f2e59]: "06"
+                - generic [ref=f2e60]: "30"
+                - generic [ref=f2e61]: "21"
+                - generic [ref=f2e62]: "72"
+                - generic [ref=f2e63]: "47"
+                - generic [ref=f2e64]: "01"
+            - paragraph [ref=f2e65]: "* เพื่อการอ้างอิง/ความบันเทิงเท่านั้น — ทุกเลขมีโอกาสออกเท่ากันทุกงวด ตัวเลขนี้ไม่การันตีถูกรางวัล"
+        - generic [ref=f2e66]:
+          - generic [ref=f2e68]:
+            - img [ref=f2e69]
+            - text: เครื่องปั่นเลขนำโชค
+          - generic [ref=f2e72]:
+            - img "ท้าวเวสสุวรรณ" [ref=f2e74]
+            - generic [ref=f2e75]:
+              - generic [ref=f2e76]:
+                - generic [ref=f2e77]: รางวัลที่ 1 (6 ตัว)
+                - generic [ref=f2e78]:
+                  - generic [ref=f2e79]: "6"
+                  - generic [ref=f2e80]: "0"
+                  - generic [ref=f2e81]: "5"
+                  - generic [ref=f2e82]: "9"
+                  - generic [ref=f2e83]: "9"
+                  - generic [ref=f2e84]: "2"
+              - generic [ref=f2e85]:
+                - generic [ref=f2e86]: เลขท้าย 2 ตัว
+                - generic [ref=f2e87]:
+                  - generic [ref=f2e88]: "64"
+                  - generic [ref=f2e89]: "00"
+                  - generic [ref=f2e90]: "53"
+                  - generic [ref=f2e91]: "98"
+                  - generic [ref=f2e92]: "96"
+                  - generic [ref=f2e93]: "27"
+              - generic [ref=f2e94]:
+                - generic [ref=f2e95]:
+                  - generic [ref=f2e96]: ค้างนาน / เลขเย็น
+                  - generic [ref=f2e97]: เลขฮอต / ออกบ่อย
+                - group [ref=f2e98]:
+                  - slider [ref=f2e103]: "50"
+              - generic [ref=f2e104]:
+                - generic [ref=f2e105]:
+                  - generic [ref=f2e106]: "เลข 2 ตัว:"
+                  - button "3" [ref=f2e107]
+                  - button "6" [ref=f2e108]
+                  - button "9" [ref=f2e109]
+                - button "สุ่มใหม่" [ref=f2e110]:
+                  - img
+                  - text: สุ่มใหม่
+              - paragraph [ref=f2e111]: 🙏 เพื่อความบันเทิงเท่านั้น — ทุกเลขมีโอกาสออกเท่ากันทุกงวด (รางวัลที่ 1 = 1 ใน 1,000,000, เลขท้าย 2 ตัว = 1 ใน 100)
+        - generic [ref=f2e112]:
+          - generic [ref=f2e114]:
+            - generic [ref=f2e115]: ข้อมูลย้อนหลัง
+            - generic [ref=f2e116]: 465 งวด
+          - generic [ref=f2e118]:
+            - generic [ref=f2e119]: เลขท้าย 2 ตัว ออกบ่อยสุด
+            - generic [ref=f2e120]: "79"
+            - generic [ref=f2e121]: 11 ครั้ง
+          - generic [ref=f2e123]:
+            - generic [ref=f2e124]: เลขท้าย 2 ตัว หายนานสุด
+            - generic [ref=f2e125]: "13"
+            - generic [ref=f2e126]: 465 งวด
+        - generic [ref=f2e127]:
+          - generic [ref=f2e128]:
+            - generic [ref=f2e129]: เทรนด์เลขท้าย 2 ตัว (60 งวดล่าสุด)
+            - generic [ref=f2e130]: ค่าเลขท้าย 2 ตัว (0–99) ตามช่วงเวลา
+          - generic [ref=f2e133]:
+            - 'application "area chart with 1 data series: เลขท้าย 2 ตัว" [ref=f2e134]':
+              - generic [ref=f2e137]:
+                - generic "100" [ref=f2e138]
+                - generic "80" [ref=f2e139]
+                - generic "60" [ref=f2e140]
+                - generic "40" [ref=f2e141]
+                - generic "20" [ref=f2e142]
+                - generic "0" [ref=f2e143]
+              - generic [ref=f2e151]:
+                - generic "17 ม.ค. 67" [ref=f2e152]
+                - generic "2 พ.ค. 67" [ref=f2e153]
+                - generic "16 ส.ค. 67" [ref=f2e154]
+                - generic "1 ธ.ค. 67" [ref=f2e155]
+                - generic "16 มี.ค. 68" [ref=f2e156]
+                - generic "1 ก.ค. 68" [ref=f2e157]
+                - generic "16 ต.ค. 68" [ref=f2e158]
+                - generic "1 ก.พ. 69" [ref=f2e159]
+                - generic "16 พ.ค. 69" [ref=f2e160]
+            - status [ref=f2e161]
+            - tooltip
+      - separator [ref=f2e162]
+      - generic [ref=f2e163]:
+        - generic [ref=f2e164]:
+          - heading "เลขท้าย 2 ตัว" [level=2] [ref=f2e165]
+          - paragraph [ref=f2e166]: ความถี่ของเลขท้าย 2 ตัว (00–99) จาก 465 งวด — ช่องสีทองเข้ม = ออกบ่อย
+        - generic [ref=f2e167]:
+          - generic [ref=f2e168]:
+            - generic [ref=f2e169]: Heatmap ความถี่ 00–99
+            - generic [ref=f2e170]: แถวคือหลักสิบ คอลัมน์คือหลักหน่วย — ชี้เพื่อดูจำนวนครั้ง
+          - generic [ref=f2e173]:
+            - 'application "heatmap chart with 10 data series: 9x, 8x, 7x, 6x, 5x, 4x, 3x, 2x, 1x, 0x" [ref=f2e174]':
+              - generic [ref=f2e176]:
+                - generic [ref=f2e177]:
+                  - generic "0x" [ref=f2e178]
+                  - generic "1x" [ref=f2e179]
+                  - generic "2x" [ref=f2e180]
+                  - generic "3x" [ref=f2e181]
+                  - generic "4x" [ref=f2e182]
+                  - generic "5x" [ref=f2e183]
+                  - generic "6x" [ref=f2e184]
+                  - generic "7x" [ref=f2e185]
+                  - generic "8x" [ref=f2e186]
+                  - generic "9x" [ref=f2e187]
+                - generic [ref=f2e189]: หลักสิบ
+              - generic [ref=f2e200]:
+                - generic [ref=f2e201]:
+                  - generic "0" [ref=f2e202]
+                  - generic "1" [ref=f2e203]
+                  - generic "2" [ref=f2e204]
+                  - generic "3" [ref=f2e205]
+                  - generic "4" [ref=f2e206]
+                  - generic "5" [ref=f2e207]
+                  - generic "6" [ref=f2e208]
+                  - generic "7" [ref=f2e209]
+                  - generic "8" [ref=f2e210]
+                  - generic "9" [ref=f2e211]
+                - generic [ref=f2e213]: หลักหน่วย
+            - status [ref=f2e214]
+            - tooltip
+        - generic [ref=f2e215]:
+          - generic [ref=f2e216]:
+            - generic [ref=f2e217]:
+              - generic [ref=f2e218]: เลขฮอต — ออกบ่อยที่สุด
+              - generic [ref=f2e219]: 10 อันดับแรก
+            - generic [ref=f2e220]:
+              - generic [ref=f2e222]:
+                - 'application "bar chart with 1 data series: จำนวนครั้ง" [ref=f2e223]':
+                  - generic [ref=f2e226]:
+                    - generic "12" [ref=f2e227]
+                    - generic "10" [ref=f2e228]
+                    - generic "8" [ref=f2e229]
+                    - generic "6" [ref=f2e230]
+                    - generic "4" [ref=f2e231]
+                    - generic "2" [ref=f2e232]
+                    - generic "0" [ref=f2e233]
+                  - generic [ref=f2e242]:
+                    - generic "79" [ref=f2e243]
+                    - generic "85" [ref=f2e244]
+                    - generic "06" [ref=f2e245]
+                    - generic "05" [ref=f2e246]
+                    - generic "14" [ref=f2e247]
+                    - generic "50" [ref=f2e248]
+                    - generic "62" [ref=f2e249]
+                    - generic "92" [ref=f2e250]
+                    - generic "98" [ref=f2e251]
+                    - generic "02" [ref=f2e252]
+                - status [ref=f2e253]
+                - tooltip
+              - generic [ref=f2e254]:
+                - generic [ref=f2e255]:
+                  - generic [ref=f2e256]: "79"
+                  - generic [ref=f2e257]: 11 ครั้ง · 2.4%
+                - generic [ref=f2e258]:
+                  - generic [ref=f2e259]: "85"
+                  - generic [ref=f2e260]: 10 ครั้ง · 2.2%
+                - generic [ref=f2e261]:
+                  - generic [ref=f2e262]: "06"
+                  - generic [ref=f2e263]: 9 ครั้ง · 1.9%
+                - generic [ref=f2e264]:
+                  - generic [ref=f2e265]: "05"
+                  - generic [ref=f2e266]: 8 ครั้ง · 1.7%
+                - generic [ref=f2e267]:
+                  - generic [ref=f2e268]: "14"
+                  - generic [ref=f2e269]: 8 ครั้ง · 1.7%
+                - generic [ref=f2e270]:
+                  - generic [ref=f2e271]: "50"
+                  - generic [ref=f2e272]: 8 ครั้ง · 1.7%
+                - generic [ref=f2e273]:
+                  - generic [ref=f2e274]: "62"
+                  - generic [ref=f2e275]: 8 ครั้ง · 1.7%
+                - generic [ref=f2e276]:
+                  - generic [ref=f2e277]: "92"
+                  - generic [ref=f2e278]: 8 ครั้ง · 1.7%
+                - generic [ref=f2e279]:
+                  - generic [ref=f2e280]: "98"
+                  - generic [ref=f2e281]: 8 ครั้ง · 1.7%
+                - generic [ref=f2e282]:
+                  - generic [ref=f2e283]: "02"
+                  - generic [ref=f2e284]: 7 ครั้ง · 1.5%
+          - generic [ref=f2e285]:
+            - generic [ref=f2e286]:
+              - generic [ref=f2e287]: เลขไม่ออกนาน (Overdue)
+              - generic [ref=f2e288]: เรียงตามจำนวนงวดที่หายไป
+            - list [ref=f2e290]:
+              - listitem [ref=f2e291]:
+                - generic [ref=f2e292]: "13"
+                - generic [ref=f2e293]:
+                  - generic [ref=f2e294]: 465 งวด
+                  - generic [ref=f2e295]: ไม่เคยออกในชุดข้อมูล
+              - listitem [ref=f2e296]:
+                - generic [ref=f2e297]: "41"
+                - generic [ref=f2e298]:
+                  - generic [ref=f2e299]: 428 งวด
+                  - generic [ref=f2e300]: ออกล่าสุด 16 ก.ค. 51
+              - listitem [ref=f2e301]:
+                - generic [ref=f2e302]: "76"
+                - generic [ref=f2e303]:
+                  - generic [ref=f2e304]: 421 งวด
+                  - generic [ref=f2e305]: ออกล่าสุด 1 พ.ย. 51
+              - listitem [ref=f2e306]:
+                - generic [ref=f2e307]: "96"
+                - generic [ref=f2e308]:
+                  - generic [ref=f2e309]: 365 งวด
+                  - generic [ref=f2e310]: ออกล่าสุด 16 มี.ค. 54
+              - listitem [ref=f2e311]:
+                - generic [ref=f2e312]: "12"
+                - generic [ref=f2e313]:
+                  - generic [ref=f2e314]: 356 งวด
+                  - generic [ref=f2e315]: ออกล่าสุด 1 ส.ค. 54
+              - listitem [ref=f2e316]:
+                - generic [ref=f2e317]: "72"
+                - generic [ref=f2e318]:
+                  - generic [ref=f2e319]: 323 งวด
+                  - generic [ref=f2e320]: ออกล่าสุด 16 ธ.ค. 55
+              - listitem [ref=f2e321]:
+                - generic [ref=f2e322]: "01"
+                - generic [ref=f2e323]:
+                  - generic [ref=f2e324]: 295 งวด
+                  - generic [ref=f2e325]: ออกล่าสุด 16 ก.พ. 57
+              - listitem [ref=f2e326]:
+                - generic [ref=f2e327]: "74"
+                - generic [ref=f2e328]:
+                  - generic [ref=f2e329]: 273 งวด
+                  - generic [ref=f2e330]: ออกล่าสุด 16 ม.ค. 58
+              - listitem [ref=f2e331]:
+                - generic [ref=f2e332]: "34"
+                - generic [ref=f2e333]:
+                  - generic [ref=f2e334]: 270 งวด
+                  - generic [ref=f2e335]: ออกล่าสุด 1 มี.ค. 58
+              - listitem [ref=f2e336]:
+                - generic [ref=f2e337]: "49"
+                - generic [ref=f2e338]:
+                  - generic [ref=f2e339]: 261 งวด
+                  - generic [ref=f2e340]: ออกล่าสุด 16 ก.ค. 58
+        - generic [ref=f2e341]:
+          - generic [ref=f2e342]:
+            - generic [ref=f2e343]:
+              - text: การทดสอบไคสแควร์ (Chi-square goodness-of-fit)
+              - generic [ref=f2e344]: ไม่ต่างจากการสุ่ม
+            - generic [ref=f2e345]: ทดสอบว่าการกระจายของเลขต่างจาก “การสุ่มแบบเท่ากันทุกเลข” อย่างมีนัยสำคัญหรือไม่
+          - generic [ref=f2e346]:
+            - generic [ref=f2e347]:
+              - generic [ref=f2e348]:
+                - generic [ref=f2e349]: χ²
+                - generic [ref=f2e350]: "88.8"
+              - generic [ref=f2e351]:
+                - generic [ref=f2e352]: df
+                - generic [ref=f2e353]: "99"
+              - generic [ref=f2e354]:
+                - generic [ref=f2e355]: p-value
+                - generic [ref=f2e356]: "0.760"
+              - generic [ref=f2e357]:
+                - generic [ref=f2e358]: ค่าคาดหวัง/เลข
+                - generic [ref=f2e359]: "4.7"
+            - paragraph [ref=f2e360]: p-value ≥ 0.05 — การกระจายของเลข ไม่ต่างจากการสุ่มแบบเท่ากันอย่างมีนัยสำคัญ ยืนยันด้วยหลักสถิติว่าไม่มีเลขไหน “มาแรง” จริง ทุกเลขมีโอกาส 1 ใน 100 เท่ากันทุกงวด
+      - separator [ref=f2e361]
+      - generic [ref=f2e362]:
+        - generic [ref=f2e363]:
+          - heading "รางวัลที่ 1" [level=2] [ref=f2e364]
+          - paragraph [ref=f2e365]: วิเคราะห์เลข 6 หลัก แยกความถี่ของเลขโดด 0–9 ในแต่ละตำแหน่ง จาก 465 งวด
+        - generic [ref=f2e366]:
+          - generic [ref=f2e367]:
+            - generic [ref=f2e368]: ความถี่เลขโดดรายตำแหน่ง
+            - generic [ref=f2e369]: แต่ละแถวคือตำแหน่งหลัก (1–6) แต่ละช่องคือจำนวนครั้งที่เลขโดดนั้นออก
+          - generic [ref=f2e372]:
+            - 'application "heatmap chart with 6 data series: ตำแหน่ง 6, ตำแหน่ง 5, ตำแหน่ง 4, ตำแหน่ง 3, ตำแหน่ง 2, ตำแหน่ง 1" [ref=f2e373]':
+              - generic [ref=f2e376]:
+                - generic "ตำแหน่ง 1" [ref=f2e377]
+                - generic "ตำแหน่ง 2" [ref=f2e378]
+                - generic "ตำแหน่ง 3" [ref=f2e379]
+                - generic "ตำแหน่ง 4" [ref=f2e380]
+                - generic "ตำแหน่ง 5" [ref=f2e381]
+                - generic "ตำแหน่ง 6" [ref=f2e382]
+              - generic [ref=f2e383]:
+                - generic [ref=f2e386]:
+                  - generic [ref=f2e387]:
+                    - generic [ref=f2e388]:
+                      - generic: "49"
+                    - generic [ref=f2e389]:
+                      - generic: "45"
+                    - generic [ref=f2e390]:
+                      - generic: "52"
+                    - generic [ref=f2e391]:
+                      - generic: "49"
+                    - generic [ref=f2e392]:
+                      - generic: "43"
+                    - generic [ref=f2e393]:
+                      - generic: "56"
+                    - generic [ref=f2e394]:
+                      - generic: "33"
+                    - generic [ref=f2e395]:
+                      - generic: "36"
+                    - generic [ref=f2e396]:
+                      - generic: "48"
+                    - generic [ref=f2e397]:
+                      - generic: "54"
+                  - generic [ref=f2e398]:
+                    - generic [ref=f2e399]:
+                      - generic: "47"
+                    - generic [ref=f2e400]:
+                      - generic: "55"
+                    - generic [ref=f2e401]:
+                      - generic: "42"
+                    - generic [ref=f2e402]:
+                      - generic: "48"
+                    - generic [ref=f2e403]:
+                      - generic: "47"
+                    - generic [ref=f2e404]:
+                      - generic: "52"
+                    - generic [ref=f2e405]:
+                      - generic: "43"
+                    - generic [ref=f2e406]:
+                      - generic: "44"
+                    - generic [ref=f2e407]:
+                      - generic: "53"
+                    - generic [ref=f2e408]:
+                      - generic: "34"
+                  - generic [ref=f2e409]:
+                    - generic [ref=f2e410]:
+                      - generic: "45"
+                    - generic [ref=f2e411]:
+                      - generic: "57"
+                    - generic [ref=f2e412]:
+                      - generic: "41"
+                    - generic [ref=f2e413]:
+                      - generic: "49"
+                    - generic [ref=f2e414]:
+                      - generic: "46"
+                    - generic [ref=f2e415]:
+                      - generic: "47"
+                    - generic [ref=f2e416]:
+                      - generic: "48"
+                    - generic [ref=f2e417]:
+                      - generic: "45"
+                    - generic [ref=f2e418]:
+                      - generic: "42"
+                    - generic [ref=f2e419]:
+                      - generic: "45"
+                  - generic [ref=f2e420]:
+                    - generic [ref=f2e421]:
+                      - generic: "40"
+                    - generic [ref=f2e422]:
+                      - generic: "40"
+                    - generic [ref=f2e423]:
+                      - generic: "40"
+                    - generic [ref=f2e424]:
+                      - generic: "56"
+                    - generic [ref=f2e425]:
+                      - generic: "50"
+                    - generic [ref=f2e426]:
+                      - generic: "48"
+                    - generic [ref=f2e427]:
+                      - generic: "51"
+                    - generic [ref=f2e428]:
+                      - generic: "44"
+                    - generic [ref=f2e429]:
+                      - generic: "48"
+                    - generic [ref=f2e430]:
+                      - generic: "48"
+                  - generic [ref=f2e431]:
+                    - generic [ref=f2e432]:
+                      - generic: "61"
+                    - generic [ref=f2e433]:
+                      - generic: "51"
+                    - generic [ref=f2e434]:
+                      - generic: "46"
+                    - generic [ref=f2e435]:
+                      - generic: "35"
+                    - generic [ref=f2e436]:
+                      - generic: "40"
+                    - generic [ref=f2e437]:
+                      - generic: "44"
+                    - generic [ref=f2e438]:
+                      - generic: "49"
+                    - generic [ref=f2e439]:
+                      - generic: "49"
+                    - generic [ref=f2e440]:
+                      - generic: "43"
+                    - generic [ref=f2e441]:
+                      - generic: "47"
+                  - generic [ref=f2e442]:
+                    - generic [ref=f2e444]:
+                      - generic: "39"
+                    - generic [ref=f2e445]:
+                      - generic: "46"
+                    - generic [ref=f2e446]:
+                      - generic: "50"
+                    - generic [ref=f2e447]:
+                      - generic: "51"
+                    - generic [ref=f2e448]:
+                      - generic: "52"
+                    - generic [ref=f2e449]:
+                      - generic: "45"
+                    - generic [ref=f2e450]:
+                      - generic: "48"
+                    - generic [ref=f2e451]:
+                      - generic: "65"
+                    - generic [ref=f2e452]:
+                      - generic: "36"
+                    - generic [ref=f2e453]:
+                      - generic: "33"
+                - generic [ref=f2e454]:
+                  - generic [ref=f2e455]:
+                    - generic "0" [ref=f2e456]
+                    - generic "1" [ref=f2e457]
+                    - generic "2" [ref=f2e458]
+                    - generic "3" [ref=f2e459]
+                    - generic "4" [ref=f2e460]
+                    - generic "5" [ref=f2e461]
+                    - generic "6" [ref=f2e462]
+                    - generic "7" [ref=f2e463]
+                    - generic "8" [ref=f2e464]
+                    - generic "9" [ref=f2e465]
+                  - generic [ref=f2e467]: เลขโดด 0–9
+            - status [ref=f2e468]
+            - tooltip
+        - generic [ref=f2e469]:
+          - generic [ref=f2e470]:
+            - generic [ref=f2e471]: ความถี่เลขโดดรวมทุกตำแหน่ง
+            - generic [ref=f2e472]: รวมเลข 0–9 จากทั้ง 6 หลัก
+          - generic [ref=f2e475]:
+            - 'application "bar chart with 1 data series: จำนวนครั้ง" [ref=f2e476]':
+              - generic [ref=f2e479]:
+                - generic "300" [ref=f2e480]
+                - generic "250" [ref=f2e481]
+                - generic "200" [ref=f2e482]
+                - generic "150" [ref=f2e483]
+                - generic "100" [ref=f2e484]
+                - generic "50" [ref=f2e485]
+                - generic "0" [ref=f2e486]
+              - generic [ref=f2e495]:
+                - generic "0" [ref=f2e496]
+                - generic "1" [ref=f2e497]
+                - generic "2" [ref=f2e498]
+                - generic "3" [ref=f2e499]
+                - generic "4" [ref=f2e500]
+                - generic "5" [ref=f2e501]
+                - generic "6" [ref=f2e502]
+                - generic "7" [ref=f2e503]
+                - generic "8" [ref=f2e504]
+                - generic "9" [ref=f2e505]
+            - status [ref=f2e506]
+            - tooltip
+        - generic [ref=f2e507]:
+          - generic [ref=f2e508]:
+            - generic [ref=f2e509]:
+              - text: ไคสแควร์ของเลขโดด
+              - generic [ref=f2e510]: ไม่ต่างจากการสุ่ม
+            - generic [ref=f2e511]: ทดสอบว่าเลขโดด 0–9 ออกไม่เท่ากันอย่างมีนัยสำคัญหรือไม่ (df = 9)
+          - paragraph [ref=f2e513]: χ² = 3.6, p-value = 0.934 — เลขโดดแต่ละตัว มีโอกาสออกใกล้เคียงกัน (≈ 1 ใน 10) ตามหลักการสุ่ม
+      - separator [ref=f2e514]
+      - generic [ref=f2e515]:
+        - generic [ref=f2e516]:
+          - heading "ประวัติย้อนหลัง" [level=2] [ref=f2e517]
+          - paragraph [ref=f2e518]: ผลรางวัลทุกงวด ค้นหาและกรองตามปีได้
+        - generic [ref=f2e521]:
+          - generic [ref=f2e522]:
+            - textbox "ค้นหาตัวเลข..." [ref=f2e523]
+            - combobox [ref=f2e524]:
+              - option "ทุกปี" [selected]
+              - option "พ.ศ. 2569"
+              - option "พ.ศ. 2568"
+              - option "พ.ศ. 2567"
+              - option "พ.ศ. 2566"
+              - option "พ.ศ. 2565"
+              - option "พ.ศ. 2564"
+              - option "พ.ศ. 2563"
+              - option "พ.ศ. 2562"
+              - option "พ.ศ. 2561"
+              - option "พ.ศ. 2560"
+              - option "พ.ศ. 2559"
+              - option "พ.ศ. 2558"
+              - option "พ.ศ. 2557"
+              - option "พ.ศ. 2556"
+              - option "พ.ศ. 2555"
+              - option "พ.ศ. 2554"
+              - option "พ.ศ. 2553"
+              - option "พ.ศ. 2552"
+              - option "พ.ศ. 2551"
+              - option "พ.ศ. 2550"
+              - option "พ.ศ. 2549"
+          - table [ref=f2e527]:
+            - rowgroup [ref=f2e528]:
+              - row "งวด รางวัลที่ 1 เลขท้าย 2 ตัว" [ref=f2e529]:
+                - columnheader "งวด" [ref=f2e530]
+                - columnheader "รางวัลที่ 1" [ref=f2e531]
+                - columnheader "เลขท้าย 2 ตัว" [ref=f2e532]
+            - rowgroup [ref=f2e533]:
+              - row "1 กรกฎาคม 2569 751495 62" [ref=f2e534]:
+                - cell "1 กรกฎาคม 2569" [ref=f2e535]
+                - cell "751495" [ref=f2e536]
+                - cell "62" [ref=f2e537]:
+                  - generic [ref=f2e538]: "62"
+              - row "16 มิถุนายน 2569 287184 48" [ref=f2e539]:
+                - cell "16 มิถุนายน 2569" [ref=f2e540]
+                - cell "287184" [ref=f2e541]
+                - cell "48" [ref=f2e542]:
+                  - generic [ref=f2e543]: "48"
+              - row "1 มิถุนายน 2569 173770 95" [ref=f2e544]:
+                - cell "1 มิถุนายน 2569" [ref=f2e545]
+                - cell "173770" [ref=f2e546]
+                - cell "95" [ref=f2e547]:
+                  - generic [ref=f2e548]: "95"
+              - row "16 พฤษภาคม 2569 107387 08" [ref=f2e549]:
+                - cell "16 พฤษภาคม 2569" [ref=f2e550]
+                - cell "107387" [ref=f2e551]
+                - cell "08" [ref=f2e552]:
+                  - generic [ref=f2e553]: "08"
+              - row "2 พฤษภาคม 2569 536077 43" [ref=f2e554]:
+                - cell "2 พฤษภาคม 2569" [ref=f2e555]
+                - cell "536077" [ref=f2e556]
+                - cell "43" [ref=f2e557]:
+                  - generic [ref=f2e558]: "43"
+              - row "16 เมษายน 2569 309612 77" [ref=f2e559]:
+                - cell "16 เมษายน 2569" [ref=f2e560]
+                - cell "309612" [ref=f2e561]
+                - cell "77" [ref=f2e562]:
+                  - generic [ref=f2e563]: "77"
+              - row "1 เมษายน 2569 292514 47" [ref=f2e564]:
+                - cell "1 เมษายน 2569" [ref=f2e565]
+                - cell "292514" [ref=f2e566]
+                - cell "47" [ref=f2e567]:
+                  - generic [ref=f2e568]: "47"
+              - row "16 มีนาคม 2569 833009 64" [ref=f2e569]:
+                - cell "16 มีนาคม 2569" [ref=f2e570]
+                - cell "833009" [ref=f2e571]
+                - cell "64" [ref=f2e572]:
+                  - generic [ref=f2e573]: "64"
+              - row "1 มีนาคม 2569 820866 06" [ref=f2e574]:
+                - cell "1 มีนาคม 2569" [ref=f2e575]
+                - cell "820866" [ref=f2e576]
+                - cell "06" [ref=f2e577]:
+                  - generic [ref=f2e578]: "06"
+              - row "16 กุมภาพันธ์ 2569 340563 07" [ref=f2e579]:
+                - cell "16 กุมภาพันธ์ 2569" [ref=f2e580]
+                - cell "340563" [ref=f2e581]
+                - cell "07" [ref=f2e582]:
+                  - generic [ref=f2e583]: "07"
+              - row "1 กุมภาพันธ์ 2569 174629 48" [ref=f2e584]:
+                - cell "1 กุมภาพันธ์ 2569" [ref=f2e585]
+                - cell "174629" [ref=f2e586]
+                - cell "48" [ref=f2e587]:
+                  - generic [ref=f2e588]: "48"
+              - row "17 มกราคม 2569 878972 02" [ref=f2e589]:
+                - cell "17 มกราคม 2569" [ref=f2e590]
+                - cell "878972" [ref=f2e591]
+                - cell "02" [ref=f2e592]:
+                  - generic [ref=f2e593]: "02"
+              - row "2 มกราคม 2569 837706 16" [ref=f2e594]:
+                - cell "2 มกราคม 2569" [ref=f2e595]
+                - cell "837706" [ref=f2e596]
+                - cell "16" [ref=f2e597]:
+                  - generic [ref=f2e598]: "16"
+              - row "16 ธันวาคม 2568 763895 52" [ref=f2e599]:
+                - cell "16 ธันวาคม 2568" [ref=f2e600]
+                - cell "763895" [ref=f2e601]
+                - cell "52" [ref=f2e602]:
+                  - generic [ref=f2e603]: "52"
+              - row "1 ธันวาคม 2568 461252 22" [ref=f2e604]:
+                - cell "1 ธันวาคม 2568" [ref=f2e605]
+                - cell "461252" [ref=f2e606]
+                - cell "22" [ref=f2e607]:
+                  - generic [ref=f2e608]: "22"
+              - row "16 พฤศจิกายน 2568 458145 37" [ref=f2e609]:
+                - cell "16 พฤศจิกายน 2568" [ref=f2e610]
+                - cell "458145" [ref=f2e611]
+                - cell "37" [ref=f2e612]:
+                  - generic [ref=f2e613]: "37"
+              - row "1 พฤศจิกายน 2568 345898 87" [ref=f2e614]:
+                - cell "1 พฤศจิกายน 2568" [ref=f2e615]
+                - cell "345898" [ref=f2e616]
+                - cell "87" [ref=f2e617]:
+                  - generic [ref=f2e618]: "87"
+              - row "16 ตุลาคม 2568 059696 61" [ref=f2e619]:
+                - cell "16 ตุลาคม 2568" [ref=f2e620]
+                - cell "059696" [ref=f2e621]
+                - cell "61" [ref=f2e622]:
+                  - generic [ref=f2e623]: "61"
+              - row "1 ตุลาคม 2568 876978 77" [ref=f2e624]:
+                - cell "1 ตุลาคม 2568" [ref=f2e625]
+                - cell "876978" [ref=f2e626]
+                - cell "77" [ref=f2e627]:
+                  - generic [ref=f2e628]: "77"
+              - row "16 กันยายน 2568 074646 58" [ref=f2e629]:
+                - cell "16 กันยายน 2568" [ref=f2e630]
+                - cell "074646" [ref=f2e631]
+                - cell "58" [ref=f2e632]:
+                  - generic [ref=f2e633]: "58"
+              - row "1 กันยายน 2568 506356 31" [ref=f2e634]:
+                - cell "1 กันยายน 2568" [ref=f2e635]
+                - cell "506356" [ref=f2e636]
+                - cell "31" [ref=f2e637]:
+                  - generic [ref=f2e638]: "31"
+              - row "16 สิงหาคม 2568 994865 63" [ref=f2e639]:
+                - cell "16 สิงหาคม 2568" [ref=f2e640]
+                - cell "994865" [ref=f2e641]
+                - cell "63" [ref=f2e642]:
+                  - generic [ref=f2e643]: "63"
+              - row "1 สิงหาคม 2568 811852 50" [ref=f2e644]:
+                - cell "1 สิงหาคม 2568" [ref=f2e645]
+                - cell "811852" [ref=f2e646]
+                - cell "50" [ref=f2e647]:
+                  - generic [ref=f2e648]: "50"
+              - row "16 กรกฎาคม 2568 245324 26" [ref=f2e649]:
+                - cell "16 กรกฎาคม 2568" [ref=f2e650]
+                - cell "245324" [ref=f2e651]
+                - cell "26" [ref=f2e652]:
+                  - generic [ref=f2e653]: "26"
+              - row "1 กรกฎาคม 2568 949246 91" [ref=f2e654]:
+                - cell "1 กรกฎาคม 2568" [ref=f2e655]
+                - cell "949246" [ref=f2e656]
+                - cell "91" [ref=f2e657]:
+                  - generic [ref=f2e658]: "91"
+              - row "16 มิถุนายน 2568 507392 06" [ref=f2e659]:
+                - cell "16 มิถุนายน 2568" [ref=f2e660]
+                - cell "507392" [ref=f2e661]
+                - cell "06" [ref=f2e662]:
+                  - generic [ref=f2e663]: "06"
+              - row "1 มิถุนายน 2568 559352 20" [ref=f2e664]:
+                - cell "1 มิถุนายน 2568" [ref=f2e665]
+                - cell "559352" [ref=f2e666]
+                - cell "20" [ref=f2e667]:
+                  - generic [ref=f2e668]: "20"
+              - row "16 พฤษภาคม 2568 251309 87" [ref=f2e669]:
+                - cell "16 พฤษภาคม 2568" [ref=f2e670]
+                - cell "251309" [ref=f2e671]
+                - cell "87" [ref=f2e672]:
+                  - generic [ref=f2e673]: "87"
+              - row "2 พฤษภาคม 2568 213388 06" [ref=f2e674]:
+                - cell "2 พฤษภาคม 2568" [ref=f2e675]
+                - cell "213388" [ref=f2e676]
+                - cell "06" [ref=f2e677]:
+                  - generic [ref=f2e678]: "06"
+              - row "16 เมษายน 2568 266227 85" [ref=f2e679]:
+                - cell "16 เมษายน 2568" [ref=f2e680]
+                - cell "266227" [ref=f2e681]
+                - cell "85" [ref=f2e682]:
+                  - generic [ref=f2e683]: "85"
+          - generic [ref=f2e684]:
+            - generic [ref=f2e685]: แสดง 1–30 จาก 465 งวด
+            - generic [ref=f2e686]:
+              - button "ก่อนหน้า" [disabled]
+              - button "ถัดไป" [ref=f2e687]
+  - contentinfo [ref=f2e688]:
+    - generic [ref=f2e689]:
+      - generic [ref=f2e690]:
+        - img "Lotto Stats" [ref=f2e691]:
+          - generic [ref=f2e695]: "88"
+        - generic [ref=f2e697]: Lotto Stats
+      - paragraph [ref=f2e698]: "⚠️ คำเตือน: เว็บนี้เป็นเครื่องมือวิเคราะห์สถิติเพื่อการศึกษาและความบันเทิงเท่านั้น การออกรางวัลสลากกินแบ่งรัฐบาลเป็นเหตุการณ์สุ่มอิสระ ผลในอดีตไม่สามารถทำนายผลในอนาคตได้ ทุกเลขมีโอกาสออกเท่ากันทุกงวด — โปรดเล่นอย่างมีสติ ไม่เกินกำลังทรัพย์ และสงวนสำหรับผู้มีอายุ 20 ปีขึ้นไป"
+      - generic [ref=f2e699]:
+        - generic [ref=f2e700]: ข้อมูลผลรางวัลจาก sanook.com / สำนักงานสลากกินแบ่งรัฐบาล (GLO)
+        - generic [ref=f2e701]: © 2026 lotto.ih8people.xyz
+      - generic [ref=f2e702]:
+        - text: พัฒนาโดย
+        - link "captainkie" [ref=f2e703] [cursor=pointer]:
+          - /url: https://github.com/captainkie
+        - text: · สร้างด้วย 🤖
+        - link "Claude" [ref=f2e704] [cursor=pointer]:
+          - /url: https://claude.com/claude-code
+        - text: (Anthropic)
+  - region "Notifications alt+T"
+  - alert [ref=f2e705]
