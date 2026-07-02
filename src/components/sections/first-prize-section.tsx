@@ -4,7 +4,6 @@ import {
   digitFrequencyByPosition,
   overallDigitFrequency,
 } from "@/lib/stats";
-import { NumberGenerator } from "@/components/number-generator";
 import { DigitPositionHeatmap } from "@/components/charts/digit-position-heatmap";
 import { BarChart } from "@/components/charts/bar-chart";
 import {
@@ -89,8 +88,6 @@ export function FirstPrizeSection({ draws }: { draws: Draw[] }) {
           </p>
         </CardContent>
       </Card>
-
-      <NumberGenerator draws={draws} mode="first" />
     </section>
   );
 }

@@ -1,14 +1,9 @@
-import { Sparkles } from "lucide-react";
 import { getAllDraws } from "@/lib/draws";
-import {
-  last2Frequency,
-  overdueLast2,
-  suggestFirstPrize,
-  suggestLast2,
-} from "@/lib/stats";
+import { last2Frequency, overdueLast2 } from "@/lib/stats";
 import { formatThaiDate, formatThaiDateShort } from "@/lib/format";
 import { NumberBall } from "@/components/number-ball";
 import { StatCard } from "@/components/stat-card";
+import { NumberGenerator } from "@/components/number-generator";
 import { LineChart } from "@/components/charts/line-chart";
 import { Last2Section } from "@/components/sections/last2-section";
 import { FirstPrizeSection } from "@/components/sections/first-prize-section";
@@ -33,23 +28,19 @@ export default async function Home() {
   const hottest = [...freq].sort((a, b) => b.count - a.count)[0];
   const mostOverdue = overdueLast2(draws)[0];
 
-  const seed = total;
-  const sugLast2 = suggestLast2(draws, { count: 6, hotVsOverdue: 0.5, seed });
-  const sugFirst = suggestFirstPrize(draws, { hotVsOverdue: 0.5, seed }).split("");
-
   const recent = draws.slice(0, 60).reverse();
 
   return (
-    <div id="top" className="mx-auto max-w-6xl space-y-16 px-4 py-8">
-      {/* Hero — latest result */}
-      <section className="space-y-10">
-        <div className="overflow-hidden rounded-2xl border border-primary/25 bg-gradient-to-b from-primary/10 to-transparent p-6 sm:p-8">
+    <div id="top" className="mx-auto max-w-6xl space-y-12 px-4 py-8 sm:space-y-16">
+      <section className="space-y-8 sm:space-y-10">
+        {/* Hero — latest result */}
+        <div className="overflow-hidden rounded-2xl border border-primary/25 bg-gradient-to-b from-primary/10 to-transparent p-5 sm:p-8">
           <div className="mb-1 text-sm text-muted-foreground">
             ผลรางวัลสลากกินแบ่งรัฐบาลงวดล่าสุด
           </div>
           {latest ? (
             <>
-              <div className="text-lg font-semibold text-primary">
+              <div className="text-base font-semibold text-primary sm:text-lg">
                 {formatThaiDate(latest.date)}
               </div>
               <div className="mt-5 grid gap-6 sm:grid-cols-2">
@@ -78,42 +69,8 @@ export default async function Home() {
           )}
         </div>
 
-        {/* Suggested numbers */}
-        <div>
-          <div className="mb-3 flex items-center gap-2">
-            <Sparkles className="size-5 text-primary" />
-            <h2 className="text-xl font-bold">ชุดเลขแนะนำวันนี้</h2>
-          </div>
-          <div className="grid gap-6 lg:grid-cols-2">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-base">รางวัลที่ 1 (6 ตัว)</CardTitle>
-                <CardDescription>
-                  สุ่มถ่วงน้ำหนักจากความถี่รายตำแหน่ง
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="flex flex-wrap justify-center gap-2">
-                {sugFirst.map((d, i) => (
-                  <NumberBall key={i} value={d} size="lg" highlight />
-                ))}
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-base">เลขท้าย 2 ตัว</CardTitle>
-                <CardDescription>สุ่มถ่วงน้ำหนักจากสถิติ</CardDescription>
-              </CardHeader>
-              <CardContent className="flex flex-wrap justify-center gap-2">
-                {sugLast2.map((n, i) => (
-                  <NumberBall key={i} value={n} size="lg" highlight />
-                ))}
-              </CardContent>
-            </Card>
-          </div>
-          <p className="mt-3 text-center text-xs text-muted-foreground">
-            * เพื่อความบันเทิงเท่านั้น — ทุกเลขมีโอกาสออกเท่ากันทุกงวด
-          </p>
-        </div>
+        {/* Interactive lucky-number generator (1st prize + last-2) */}
+        <NumberGenerator draws={draws} />
 
         {/* Quick stats */}
         <div className="grid gap-4 sm:grid-cols-3">

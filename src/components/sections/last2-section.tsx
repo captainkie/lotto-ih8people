@@ -2,7 +2,6 @@ import type { Draw } from "@/lib/types";
 import { chiSquareLast2, last2Frequency, overdueLast2 } from "@/lib/stats";
 import { formatThaiDateShort, formatPct } from "@/lib/format";
 import { NumberBall } from "@/components/number-ball";
-import { NumberGenerator } from "@/components/number-generator";
 import { Last2Heatmap } from "@/components/charts/last2-heatmap";
 import { BarChart } from "@/components/charts/bar-chart";
 import {
@@ -142,8 +141,6 @@ export function Last2Section({ draws }: { draws: Draw[] }) {
           </p>
         </CardContent>
       </Card>
-
-      <NumberGenerator draws={draws} mode="last2" />
     </section>
   );
 }
