@@ -72,9 +72,9 @@ export default async function Home() {
                   <div className="mb-2 text-xs text-muted-foreground">
                     รางวัลที่ 1
                   </div>
-                  <div className="flex flex-wrap gap-1.5">
+                  <div className="grid grid-cols-6 gap-1 sm:gap-1.5">
                     {latest.firstPrize.split("").map((d, i) => (
-                      <NumberBall key={i} value={d} size="lg" highlight />
+                      <NumberBall key={i} value={d} fluid highlight />
                     ))}
                   </div>
                 </div>
@@ -110,9 +110,9 @@ export default async function Home() {
           <CardContent className="space-y-5">
             <div>
               <div className="mb-2 text-xs text-muted-foreground">รางวัลที่ 1</div>
-              <div className="flex flex-wrap gap-1.5">
+              <div className="grid grid-cols-6 gap-1 sm:gap-1.5">
                 {sugFirst.map((d, i) => (
-                  <NumberBall key={i} value={d} size="lg" highlight />
+                  <NumberBall key={i} value={d} fluid highlight />
                 ))}
               </div>
             </div>
