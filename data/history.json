@@ -1,0 +1,2570 @@
+[
+  {
+    "date": "2024-12-16",
+    "firstPrize": "097863",
+    "last2": "21",
+    "source": "csv"
+  },
+  {
+    "date": "2024-12-01",
+    "firstPrize": "669843",
+    "last2": "61",
+    "source": "csv"
+  },
+  {
+    "date": "2024-11-16",
+    "firstPrize": "187221",
+    "last2": "38",
+    "source": "csv"
+  },
+  {
+    "date": "2024-11-01",
+    "firstPrize": "536044",
+    "last2": "32",
+    "source": "csv"
+  },
+  {
+    "date": "2024-10-16",
+    "firstPrize": "482962",
+    "last2": "00",
+    "source": "csv"
+  },
+  {
+    "date": "2024-10-01",
+    "firstPrize": "718665",
+    "last2": "59",
+    "source": "csv"
+  },
+  {
+    "date": "2024-09-16",
+    "firstPrize": "608662",
+    "last2": "37",
+    "source": "csv"
+  },
+  {
+    "date": "2024-09-01",
+    "firstPrize": "199606",
+    "last2": "94",
+    "source": "csv"
+  },
+  {
+    "date": "2024-08-16",
+    "firstPrize": "095867",
+    "last2": "28",
+    "source": "csv"
+  },
+  {
+    "date": "2024-08-01",
+    "firstPrize": "407041",
+    "last2": "46",
+    "source": "csv"
+  },
+  {
+    "date": "2024-07-16",
+    "firstPrize": "367336",
+    "last2": "21",
+    "source": "csv"
+  },
+  {
+    "date": "2024-07-01",
+    "firstPrize": "434503",
+    "last2": "89",
+    "source": "csv"
+  },
+  {
+    "date": "2024-06-16",
+    "firstPrize": "518504",
+    "last2": "31",
+    "source": "csv"
+  },
+  {
+    "date": "2024-06-01",
+    "firstPrize": "530593",
+    "last2": "42",
+    "source": "csv"
+  },
+  {
+    "date": "2024-05-16",
+    "firstPrize": "205690",
+    "last2": "60",
+    "source": "csv"
+  },
+  {
+    "date": "2024-05-02",
+    "firstPrize": "980116",
+    "last2": "17",
+    "source": "csv"
+  },
+  {
+    "date": "2024-04-16",
+    "firstPrize": "943598",
+    "last2": "79",
+    "source": "csv"
+  },
+  {
+    "date": "2024-04-01",
+    "firstPrize": "803481",
+    "last2": "90",
+    "source": "csv"
+  },
+  {
+    "date": "2024-03-16",
+    "firstPrize": "997626",
+    "last2": "78",
+    "source": "csv"
+  },
+  {
+    "date": "2024-03-01",
+    "firstPrize": "253603",
+    "last2": "79",
+    "source": "csv"
+  },
+  {
+    "date": "2024-02-16",
+    "firstPrize": "941395",
+    "last2": "43",
+    "source": "csv"
+  },
+  {
+    "date": "2024-02-01",
+    "firstPrize": "607063",
+    "last2": "09",
+    "source": "csv"
+  },
+  {
+    "date": "2024-01-17",
+    "firstPrize": "105979",
+    "last2": "61",
+    "source": "csv"
+  },
+  {
+    "date": "2023-12-30",
+    "firstPrize": "625544",
+    "last2": "89",
+    "source": "csv"
+  },
+  {
+    "date": "2023-12-16",
+    "firstPrize": "356757",
+    "last2": "85",
+    "source": "csv"
+  },
+  {
+    "date": "2023-12-01",
+    "firstPrize": "251097",
+    "last2": "91",
+    "source": "csv"
+  },
+  {
+    "date": "2023-11-16",
+    "firstPrize": "557990",
+    "last2": "14",
+    "source": "csv"
+  },
+  {
+    "date": "2023-11-01",
+    "firstPrize": "743951",
+    "last2": "63",
+    "source": "csv"
+  },
+  {
+    "date": "2023-10-16",
+    "firstPrize": "931446",
+    "last2": "44",
+    "source": "csv"
+  },
+  {
+    "date": "2023-10-01",
+    "firstPrize": "727202",
+    "last2": "66",
+    "source": "csv"
+  },
+  {
+    "date": "2023-09-16",
+    "firstPrize": "320812",
+    "last2": "46",
+    "source": "csv"
+  },
+  {
+    "date": "2023-09-01",
+    "firstPrize": "915478",
+    "last2": "91",
+    "source": "csv"
+  },
+  {
+    "date": "2023-08-16",
+    "firstPrize": "471782",
+    "last2": "67",
+    "source": "csv"
+  },
+  {
+    "date": "2023-07-31",
+    "firstPrize": "260453",
+    "last2": "11",
+    "source": "csv"
+  },
+  {
+    "date": "2023-07-16",
+    "firstPrize": "169530",
+    "last2": "62",
+    "source": "csv"
+  },
+  {
+    "date": "2023-07-01",
+    "firstPrize": "922605",
+    "last2": "16",
+    "source": "csv"
+  },
+  {
+    "date": "2023-06-16",
+    "firstPrize": "264872",
+    "last2": "30",
+    "source": "csv"
+  },
+  {
+    "date": "2023-06-01",
+    "firstPrize": "125272",
+    "last2": "09",
+    "source": "csv"
+  },
+  {
+    "date": "2023-05-16",
+    "firstPrize": "132903",
+    "last2": "99",
+    "source": "csv"
+  },
+  {
+    "date": "2023-05-02",
+    "firstPrize": "843019",
+    "last2": "65",
+    "source": "csv"
+  },
+  {
+    "date": "2023-04-16",
+    "firstPrize": "984906",
+    "last2": "71",
+    "source": "csv"
+  },
+  {
+    "date": "2023-04-01",
+    "firstPrize": "087907",
+    "last2": "99",
+    "source": "csv"
+  },
+  {
+    "date": "2023-03-16",
+    "firstPrize": "025873",
+    "last2": "73",
+    "source": "csv"
+  },
+  {
+    "date": "2023-03-01",
+    "firstPrize": "417652",
+    "last2": "55",
+    "source": "csv"
+  },
+  {
+    "date": "2023-02-16",
+    "firstPrize": "590417",
+    "last2": "80",
+    "source": "csv"
+  },
+  {
+    "date": "2023-02-01",
+    "firstPrize": "297411",
+    "last2": "92",
+    "source": "csv"
+  },
+  {
+    "date": "2023-01-17",
+    "firstPrize": "812519",
+    "last2": "47",
+    "source": "csv"
+  },
+  {
+    "date": "2022-12-30",
+    "firstPrize": "157196",
+    "last2": "58",
+    "source": "csv"
+  },
+  {
+    "date": "2022-12-16",
+    "firstPrize": "845093",
+    "last2": "14",
+    "source": "csv"
+  },
+  {
+    "date": "2022-12-01",
+    "firstPrize": "375805",
+    "last2": "08",
+    "source": "csv"
+  },
+  {
+    "date": "2022-11-16",
+    "firstPrize": "121789",
+    "last2": "64",
+    "source": "csv"
+  },
+  {
+    "date": "2022-11-01",
+    "firstPrize": "913106",
+    "last2": "70",
+    "source": "csv"
+  },
+  {
+    "date": "2022-10-16",
+    "firstPrize": "613106",
+    "last2": "15",
+    "source": "csv"
+  },
+  {
+    "date": "2022-10-01",
+    "firstPrize": "484669",
+    "last2": "50",
+    "source": "csv"
+  },
+  {
+    "date": "2022-09-16",
+    "firstPrize": "943703",
+    "last2": "75",
+    "source": "csv"
+  },
+  {
+    "date": "2022-09-01",
+    "firstPrize": "929332",
+    "last2": "83",
+    "source": "csv"
+  },
+  {
+    "date": "2022-08-16",
+    "firstPrize": "331583",
+    "last2": "42",
+    "source": "csv"
+  },
+  {
+    "date": "2022-08-01",
+    "firstPrize": "436594",
+    "last2": "14",
+    "source": "csv"
+  },
+  {
+    "date": "2022-07-16",
+    "firstPrize": "620405",
+    "last2": "53",
+    "source": "csv"
+  },
+  {
+    "date": "2022-07-01",
+    "firstPrize": "981417",
+    "last2": "61",
+    "source": "csv"
+  },
+  {
+    "date": "2022-06-16",
+    "firstPrize": "361807",
+    "last2": "92",
+    "source": "csv"
+  },
+  {
+    "date": "2022-06-01",
+    "firstPrize": "319196",
+    "last2": "02",
+    "source": "csv"
+  },
+  {
+    "date": "2022-05-16",
+    "firstPrize": "155012",
+    "last2": "06",
+    "source": "csv"
+  },
+  {
+    "date": "2022-05-02",
+    "firstPrize": "658642",
+    "last2": "09",
+    "source": "csv"
+  },
+  {
+    "date": "2022-04-16",
+    "firstPrize": "395919",
+    "last2": "58",
+    "source": "csv"
+  },
+  {
+    "date": "2022-04-01",
+    "firstPrize": "970618",
+    "last2": "10",
+    "source": "csv"
+  },
+  {
+    "date": "2022-03-16",
+    "firstPrize": "737867",
+    "last2": "03",
+    "source": "csv"
+  },
+  {
+    "date": "2022-03-01",
+    "firstPrize": "061905",
+    "last2": "07",
+    "source": "csv"
+  },
+  {
+    "date": "2022-02-17",
+    "firstPrize": "098597",
+    "last2": "57",
+    "source": "csv"
+  },
+  {
+    "date": "2022-02-01",
+    "firstPrize": "944308",
+    "last2": "30",
+    "source": "csv"
+  },
+  {
+    "date": "2022-01-17",
+    "firstPrize": "880159",
+    "last2": "92",
+    "source": "csv"
+  },
+  {
+    "date": "2021-12-30",
+    "firstPrize": "819068",
+    "last2": "36",
+    "source": "csv"
+  },
+  {
+    "date": "2021-12-16",
+    "firstPrize": "639235",
+    "last2": "83",
+    "source": "csv"
+  },
+  {
+    "date": "2021-12-01",
+    "firstPrize": "077258",
+    "last2": "82",
+    "source": "csv"
+  },
+  {
+    "date": "2021-11-16",
+    "firstPrize": "032761",
+    "last2": "57",
+    "source": "csv"
+  },
+  {
+    "date": "2021-11-01",
+    "firstPrize": "045037",
+    "last2": "95",
+    "source": "csv"
+  },
+  {
+    "date": "2021-10-16",
+    "firstPrize": "386372",
+    "last2": "38",
+    "source": "csv"
+  },
+  {
+    "date": "2021-10-01",
+    "firstPrize": "578171",
+    "last2": "83",
+    "source": "csv"
+  },
+  {
+    "date": "2021-09-16",
+    "firstPrize": "070935",
+    "last2": "90",
+    "source": "csv"
+  },
+  {
+    "date": "2021-09-01",
+    "firstPrize": "114475",
+    "last2": "79",
+    "source": "csv"
+  },
+  {
+    "date": "2021-08-16",
+    "firstPrize": "046750",
+    "last2": "23",
+    "source": "csv"
+  },
+  {
+    "date": "2021-08-01",
+    "firstPrize": "910261",
+    "last2": "69",
+    "source": "csv"
+  },
+  {
+    "date": "2021-07-16",
+    "firstPrize": "556725",
+    "last2": "70",
+    "source": "csv"
+  },
+  {
+    "date": "2021-07-01",
+    "firstPrize": "713517",
+    "last2": "29",
+    "source": "csv"
+  },
+  {
+    "date": "2021-06-16",
+    "firstPrize": "691861",
+    "last2": "17",
+    "source": "csv"
+  },
+  {
+    "date": "2021-06-01",
+    "firstPrize": "292972",
+    "last2": "45",
+    "source": "csv"
+  },
+  {
+    "date": "2021-05-16",
+    "firstPrize": "684579",
+    "last2": "14",
+    "source": "csv"
+  },
+  {
+    "date": "2021-05-02",
+    "firstPrize": "501272",
+    "last2": "18",
+    "source": "csv"
+  },
+  {
+    "date": "2021-04-16",
+    "firstPrize": "100787",
+    "last2": "56",
+    "source": "csv"
+  },
+  {
+    "date": "2021-04-01",
+    "firstPrize": "472270",
+    "last2": "05",
+    "source": "csv"
+  },
+  {
+    "date": "2021-03-16",
+    "firstPrize": "890422",
+    "last2": "19",
+    "source": "csv"
+  },
+  {
+    "date": "2021-03-01",
+    "firstPrize": "835538",
+    "last2": "73",
+    "source": "csv"
+  },
+  {
+    "date": "2021-02-16",
+    "firstPrize": "424603",
+    "last2": "39",
+    "source": "csv"
+  },
+  {
+    "date": "2021-02-01",
+    "firstPrize": "912307",
+    "last2": "97",
+    "source": "csv"
+  },
+  {
+    "date": "2021-01-17",
+    "firstPrize": "384395",
+    "last2": "15",
+    "source": "csv"
+  },
+  {
+    "date": "2020-12-30",
+    "firstPrize": "803628",
+    "last2": "19",
+    "source": "csv"
+  },
+  {
+    "date": "2020-12-16",
+    "firstPrize": "201303",
+    "last2": "70",
+    "source": "csv"
+  },
+  {
+    "date": "2020-12-01",
+    "firstPrize": "100994",
+    "last2": "84",
+    "source": "csv"
+  },
+  {
+    "date": "2020-11-16",
+    "firstPrize": "972661",
+    "last2": "46",
+    "source": "csv"
+  },
+  {
+    "date": "2020-11-01",
+    "firstPrize": "506404",
+    "last2": "40",
+    "source": "csv"
+  },
+  {
+    "date": "2020-10-16",
+    "firstPrize": "286051",
+    "last2": "38",
+    "source": "csv"
+  },
+  {
+    "date": "2020-10-01",
+    "firstPrize": "837893",
+    "last2": "59",
+    "source": "csv"
+  },
+  {
+    "date": "2020-09-16",
+    "firstPrize": "244083",
+    "last2": "57",
+    "source": "csv"
+  },
+  {
+    "date": "2020-09-01",
+    "firstPrize": "999997",
+    "last2": "98",
+    "source": "csv"
+  },
+  {
+    "date": "2020-08-16",
+    "firstPrize": "945811",
+    "last2": "88",
+    "source": "csv"
+  },
+  {
+    "date": "2020-08-01",
+    "firstPrize": "569391",
+    "last2": "92",
+    "source": "csv"
+  },
+  {
+    "date": "2020-07-16",
+    "firstPrize": "873286",
+    "last2": "53",
+    "source": "csv"
+  },
+  {
+    "date": "2020-07-01",
+    "firstPrize": "347258",
+    "last2": "83",
+    "source": "csv"
+  },
+  {
+    "date": "2020-06-16",
+    "firstPrize": "516967",
+    "last2": "64",
+    "source": "csv"
+  },
+  {
+    "date": "2020-06-01",
+    "firstPrize": "831567",
+    "last2": "24",
+    "source": "csv"
+  },
+  {
+    "date": "2020-05-16",
+    "firstPrize": "051095",
+    "last2": "22",
+    "source": "csv"
+  },
+  {
+    "date": "2020-04-01",
+    "firstPrize": "051095",
+    "last2": "22",
+    "source": "csv"
+  },
+  {
+    "date": "2020-03-16",
+    "firstPrize": "503446",
+    "last2": "77",
+    "source": "csv"
+  },
+  {
+    "date": "2020-03-01",
+    "firstPrize": "875938",
+    "last2": "98",
+    "source": "csv"
+  },
+  {
+    "date": "2020-02-16",
+    "firstPrize": "781403",
+    "last2": "94",
+    "source": "csv"
+  },
+  {
+    "date": "2020-02-01",
+    "firstPrize": "589227",
+    "last2": "06",
+    "source": "csv"
+  },
+  {
+    "date": "2020-01-17",
+    "firstPrize": "491774",
+    "last2": "68",
+    "source": "csv"
+  },
+  {
+    "date": "2019-12-30",
+    "firstPrize": "510541",
+    "last2": "81",
+    "source": "csv"
+  },
+  {
+    "date": "2019-12-16",
+    "firstPrize": "529924",
+    "last2": "97",
+    "source": "csv"
+  },
+  {
+    "date": "2019-12-01",
+    "firstPrize": "453522",
+    "last2": "81",
+    "source": "csv"
+  },
+  {
+    "date": "2019-11-16",
+    "firstPrize": "017223",
+    "last2": "32",
+    "source": "csv"
+  },
+  {
+    "date": "2019-11-01",
+    "firstPrize": "967375",
+    "last2": "79",
+    "source": "csv"
+  },
+  {
+    "date": "2019-10-16",
+    "firstPrize": "812564",
+    "last2": "15",
+    "source": "csv"
+  },
+  {
+    "date": "2019-10-01",
+    "firstPrize": "691197",
+    "last2": "59",
+    "source": "csv"
+  },
+  {
+    "date": "2019-09-16",
+    "firstPrize": "340388",
+    "last2": "85",
+    "source": "csv"
+  },
+  {
+    "date": "2019-09-01",
+    "firstPrize": "798787",
+    "last2": "20",
+    "source": "csv"
+  },
+  {
+    "date": "2019-08-16",
+    "firstPrize": "775476",
+    "last2": "89",
+    "source": "csv"
+  },
+  {
+    "date": "2019-08-01",
+    "firstPrize": "387006",
+    "last2": "58",
+    "source": "csv"
+  },
+  {
+    "date": "2019-07-15",
+    "firstPrize": "369765",
+    "last2": "88",
+    "source": "csv"
+  },
+  {
+    "date": "2019-07-01",
+    "firstPrize": "943647",
+    "last2": "86",
+    "source": "csv"
+  },
+  {
+    "date": "2019-06-16",
+    "firstPrize": "174055",
+    "last2": "29",
+    "source": "csv"
+  },
+  {
+    "date": "2019-06-01",
+    "firstPrize": "516461",
+    "last2": "46",
+    "source": "csv"
+  },
+  {
+    "date": "2019-05-16",
+    "firstPrize": "962526",
+    "last2": "71",
+    "source": "csv"
+  },
+  {
+    "date": "2019-05-02",
+    "firstPrize": "061324",
+    "last2": "25",
+    "source": "csv"
+  },
+  {
+    "date": "2019-04-16",
+    "firstPrize": "570331",
+    "last2": "23",
+    "source": "csv"
+  },
+  {
+    "date": "2019-04-01",
+    "firstPrize": "109767",
+    "last2": "52",
+    "source": "csv"
+  },
+  {
+    "date": "2019-03-16",
+    "firstPrize": "724628",
+    "last2": "64",
+    "source": "csv"
+  },
+  {
+    "date": "2019-03-01",
+    "firstPrize": "345650",
+    "last2": "65",
+    "source": "csv"
+  },
+  {
+    "date": "2019-02-16",
+    "firstPrize": "074824",
+    "last2": "56",
+    "source": "csv"
+  },
+  {
+    "date": "2019-02-01",
+    "firstPrize": "967134",
+    "last2": "04",
+    "source": "csv"
+  },
+  {
+    "date": "2019-01-17",
+    "firstPrize": "197079",
+    "last2": "65",
+    "source": "csv"
+  },
+  {
+    "date": "2018-12-30",
+    "firstPrize": "735867",
+    "last2": "02",
+    "source": "csv"
+  },
+  {
+    "date": "2018-12-16",
+    "firstPrize": "356564",
+    "last2": "62",
+    "source": "csv"
+  },
+  {
+    "date": "2018-12-01",
+    "firstPrize": "021840",
+    "last2": "67",
+    "source": "csv"
+  },
+  {
+    "date": "2018-11-16",
+    "firstPrize": "989903",
+    "last2": "16",
+    "source": "csv"
+  },
+  {
+    "date": "2018-11-01",
+    "firstPrize": "149840",
+    "last2": "58",
+    "source": "csv"
+  },
+  {
+    "date": "2018-10-16",
+    "firstPrize": "200515",
+    "last2": "93",
+    "source": "csv"
+  },
+  {
+    "date": "2018-10-01",
+    "firstPrize": "452643",
+    "last2": "99",
+    "source": "csv"
+  },
+  {
+    "date": "2018-09-16",
+    "firstPrize": "149760",
+    "last2": "79",
+    "source": "csv"
+  },
+  {
+    "date": "2018-09-01",
+    "firstPrize": "734510",
+    "last2": "26",
+    "source": "csv"
+  },
+  {
+    "date": "2018-08-16",
+    "firstPrize": "586117",
+    "last2": "10",
+    "source": "csv"
+  },
+  {
+    "date": "2018-08-01",
+    "firstPrize": "386602",
+    "last2": "78",
+    "source": "csv"
+  },
+  {
+    "date": "2018-07-16",
+    "firstPrize": "596324",
+    "last2": "27",
+    "source": "csv"
+  },
+  {
+    "date": "2018-07-01",
+    "firstPrize": "963623",
+    "last2": "83",
+    "source": "csv"
+  },
+  {
+    "date": "2018-06-16",
+    "firstPrize": "223131",
+    "last2": "46",
+    "source": "csv"
+  },
+  {
+    "date": "2018-06-01",
+    "firstPrize": "988117",
+    "last2": "95",
+    "source": "csv"
+  },
+  {
+    "date": "2018-05-16",
+    "firstPrize": "075629",
+    "last2": "20",
+    "source": "csv"
+  },
+  {
+    "date": "2018-05-02",
+    "firstPrize": "248038",
+    "last2": "85",
+    "source": "csv"
+  },
+  {
+    "date": "2018-04-16",
+    "firstPrize": "739229",
+    "last2": "60",
+    "source": "csv"
+  },
+  {
+    "date": "2018-04-01",
+    "firstPrize": "412073",
+    "last2": "85",
+    "source": "csv"
+  },
+  {
+    "date": "2018-03-16",
+    "firstPrize": "218559",
+    "last2": "82",
+    "source": "csv"
+  },
+  {
+    "date": "2018-03-02",
+    "firstPrize": "759415",
+    "last2": "29",
+    "source": "csv"
+  },
+  {
+    "date": "2018-02-16",
+    "firstPrize": "309915",
+    "last2": "39",
+    "source": "csv"
+  },
+  {
+    "date": "2018-02-01",
+    "firstPrize": "026853",
+    "last2": "31",
+    "source": "csv"
+  },
+  {
+    "date": "2018-01-17",
+    "firstPrize": "203823",
+    "last2": "50",
+    "source": "csv"
+  },
+  {
+    "date": "2017-12-30",
+    "firstPrize": "911234",
+    "last2": "98",
+    "source": "csv"
+  },
+  {
+    "date": "2017-12-16",
+    "firstPrize": "955596",
+    "last2": "89",
+    "source": "csv"
+  },
+  {
+    "date": "2017-12-01",
+    "firstPrize": "451005",
+    "last2": "33",
+    "source": "csv"
+  },
+  {
+    "date": "2017-11-16",
+    "firstPrize": "292391",
+    "last2": "98",
+    "source": "csv"
+  },
+  {
+    "date": "2017-11-01",
+    "firstPrize": "533726",
+    "last2": "85",
+    "source": "csv"
+  },
+  {
+    "date": "2017-10-16",
+    "firstPrize": "413494",
+    "last2": "86",
+    "source": "csv"
+  },
+  {
+    "date": "2017-10-01",
+    "firstPrize": "880714",
+    "last2": "52",
+    "source": "csv"
+  },
+  {
+    "date": "2017-09-16",
+    "firstPrize": "170143",
+    "last2": "71",
+    "source": "csv"
+  },
+  {
+    "date": "2017-09-01",
+    "firstPrize": "143224",
+    "last2": "65",
+    "source": "csv"
+  },
+  {
+    "date": "2017-08-16",
+    "firstPrize": "715431",
+    "last2": "37",
+    "source": "csv"
+  },
+  {
+    "date": "2017-08-01",
+    "firstPrize": "756519",
+    "last2": "36",
+    "source": "csv"
+  },
+  {
+    "date": "2017-07-16",
+    "firstPrize": "820327",
+    "last2": "87",
+    "source": "csv"
+  },
+  {
+    "date": "2017-07-01",
+    "firstPrize": "112360",
+    "last2": "26",
+    "source": "csv"
+  },
+  {
+    "date": "2017-06-16",
+    "firstPrize": "943142",
+    "last2": "47",
+    "source": "csv"
+  },
+  {
+    "date": "2017-06-01",
+    "firstPrize": "053630",
+    "last2": "61",
+    "source": "csv"
+  },
+  {
+    "date": "2017-05-16",
+    "firstPrize": "454891",
+    "last2": "53",
+    "source": "csv"
+  },
+  {
+    "date": "2017-05-02",
+    "firstPrize": "008656",
+    "last2": "35",
+    "source": "csv"
+  },
+  {
+    "date": "2017-04-16",
+    "firstPrize": "816729",
+    "last2": "40",
+    "source": "csv"
+  },
+  {
+    "date": "2017-04-01",
+    "firstPrize": "392785",
+    "last2": "80",
+    "source": "csv"
+  },
+  {
+    "date": "2017-03-16",
+    "firstPrize": "273863",
+    "last2": "92",
+    "source": "csv"
+  },
+  {
+    "date": "2017-03-01",
+    "firstPrize": "978453",
+    "last2": "78",
+    "source": "csv"
+  },
+  {
+    "date": "2017-02-16",
+    "firstPrize": "229116",
+    "last2": "14",
+    "source": "csv"
+  },
+  {
+    "date": "2017-02-01",
+    "firstPrize": "054672",
+    "last2": "42",
+    "source": "csv"
+  },
+  {
+    "date": "2017-01-17",
+    "firstPrize": "145157",
+    "last2": "25",
+    "source": "csv"
+  },
+  {
+    "date": "2016-12-30",
+    "firstPrize": "377712",
+    "last2": "46",
+    "source": "csv"
+  },
+  {
+    "date": "2016-12-16",
+    "firstPrize": "435286",
+    "last2": "35",
+    "source": "csv"
+  },
+  {
+    "date": "2016-12-01",
+    "firstPrize": "086069",
+    "last2": "77",
+    "source": "csv"
+  },
+  {
+    "date": "2016-11-16",
+    "firstPrize": "858383",
+    "last2": "44",
+    "source": "csv"
+  },
+  {
+    "date": "2016-11-01",
+    "firstPrize": "785438",
+    "last2": "86",
+    "source": "csv"
+  },
+  {
+    "date": "2016-10-16",
+    "firstPrize": "571947",
+    "last2": "98",
+    "source": "csv"
+  },
+  {
+    "date": "2016-10-01",
+    "firstPrize": "887102",
+    "last2": "33",
+    "source": "csv"
+  },
+  {
+    "date": "2016-09-16",
+    "firstPrize": "240650",
+    "last2": "42",
+    "source": "csv"
+  },
+  {
+    "date": "2016-09-01",
+    "firstPrize": "638684",
+    "last2": "62",
+    "source": "csv"
+  },
+  {
+    "date": "2016-08-16",
+    "firstPrize": "254004",
+    "last2": "33",
+    "source": "csv"
+  },
+  {
+    "date": "2016-08-01",
+    "firstPrize": "272932",
+    "last2": "57",
+    "source": "csv"
+  },
+  {
+    "date": "2016-07-16",
+    "firstPrize": "449764",
+    "last2": "55",
+    "source": "csv"
+  },
+  {
+    "date": "2016-07-01",
+    "firstPrize": "082460",
+    "last2": "53",
+    "source": "csv"
+  },
+  {
+    "date": "2016-06-16",
+    "firstPrize": "073816",
+    "last2": "79",
+    "source": "csv"
+  },
+  {
+    "date": "2016-06-01",
+    "firstPrize": "511825",
+    "last2": "14",
+    "source": "csv"
+  },
+  {
+    "date": "2016-05-16",
+    "firstPrize": "141737",
+    "last2": "98",
+    "source": "csv"
+  },
+  {
+    "date": "2016-05-02",
+    "firstPrize": "399459",
+    "last2": "02",
+    "source": "csv"
+  },
+  {
+    "date": "2016-04-16",
+    "firstPrize": "221609",
+    "last2": "87",
+    "source": "csv"
+  },
+  {
+    "date": "2016-04-01",
+    "firstPrize": "066720",
+    "last2": "92",
+    "source": "csv"
+  },
+  {
+    "date": "2016-03-16",
+    "firstPrize": "134918",
+    "last2": "32",
+    "source": "csv"
+  },
+  {
+    "date": "2016-03-01",
+    "firstPrize": "439686",
+    "last2": "06",
+    "source": "csv"
+  },
+  {
+    "date": "2016-02-16",
+    "firstPrize": "356364",
+    "last2": "98",
+    "source": "csv"
+  },
+  {
+    "date": "2016-02-01",
+    "firstPrize": "927800",
+    "last2": "09",
+    "source": "csv"
+  },
+  {
+    "date": "2016-01-17",
+    "firstPrize": "304371",
+    "last2": "50",
+    "source": "csv"
+  },
+  {
+    "date": "2015-12-30",
+    "firstPrize": "008217",
+    "last2": "02",
+    "source": "csv"
+  },
+  {
+    "date": "2015-12-17",
+    "firstPrize": "930255",
+    "last2": "08",
+    "source": "csv"
+  },
+  {
+    "date": "2015-12-01",
+    "firstPrize": "915350",
+    "last2": "78",
+    "source": "csv"
+  },
+  {
+    "date": "2015-11-16",
+    "firstPrize": "795283",
+    "last2": "03",
+    "source": "csv"
+  },
+  {
+    "date": "2015-11-01",
+    "firstPrize": "361211",
+    "last2": "45",
+    "source": "csv"
+  },
+  {
+    "date": "2015-10-16",
+    "firstPrize": "968630",
+    "last2": "62",
+    "source": "csv"
+  },
+  {
+    "date": "2015-10-01",
+    "firstPrize": "594825",
+    "last2": "07",
+    "source": "csv"
+  },
+  {
+    "date": "2015-09-16",
+    "firstPrize": "743148",
+    "last2": "06",
+    "source": "csv"
+  },
+  {
+    "date": "2015-09-01",
+    "firstPrize": "021094",
+    "last2": "89",
+    "source": "csv"
+  },
+  {
+    "date": "2015-08-16",
+    "firstPrize": "033363",
+    "last2": "40",
+    "source": "csv"
+  },
+  {
+    "date": "2015-08-01",
+    "firstPrize": "518677",
+    "last2": "53",
+    "source": "csv"
+  },
+  {
+    "date": "2015-07-16",
+    "firstPrize": "121507",
+    "last2": "49",
+    "source": "csv"
+  },
+  {
+    "date": "2015-07-01",
+    "firstPrize": "759049",
+    "last2": "26",
+    "source": "csv"
+  },
+  {
+    "date": "2015-06-16",
+    "firstPrize": "644742",
+    "last2": "05",
+    "source": "csv"
+  },
+  {
+    "date": "2015-06-02",
+    "firstPrize": "388881",
+    "last2": "65",
+    "source": "csv"
+  },
+  {
+    "date": "2015-05-16",
+    "firstPrize": "011421",
+    "last2": "38",
+    "source": "csv"
+  },
+  {
+    "date": "2015-05-02",
+    "firstPrize": "543466",
+    "last2": "30",
+    "source": "csv"
+  },
+  {
+    "date": "2015-04-16",
+    "firstPrize": "506260",
+    "last2": "38",
+    "source": "csv"
+  },
+  {
+    "date": "2015-04-01",
+    "firstPrize": "605704",
+    "last2": "70",
+    "source": "csv"
+  },
+  {
+    "date": "2015-03-16",
+    "firstPrize": "048151",
+    "last2": "92",
+    "source": "csv"
+  },
+  {
+    "date": "2015-03-01",
+    "firstPrize": "240237",
+    "last2": "34",
+    "source": "csv"
+  },
+  {
+    "date": "2015-02-16",
+    "firstPrize": "001864",
+    "last2": "90",
+    "source": "csv"
+  },
+  {
+    "date": "2015-02-01",
+    "firstPrize": "155537",
+    "last2": "79",
+    "source": "csv"
+  },
+  {
+    "date": "2015-01-16",
+    "firstPrize": "244351",
+    "last2": "74",
+    "source": "csv"
+  },
+  {
+    "date": "2014-12-30",
+    "firstPrize": "461704",
+    "last2": "57",
+    "source": "csv"
+  },
+  {
+    "date": "2014-12-16",
+    "firstPrize": "948354",
+    "last2": "90",
+    "source": "csv"
+  },
+  {
+    "date": "2014-12-01",
+    "firstPrize": "480449",
+    "last2": "11",
+    "source": "csv"
+  },
+  {
+    "date": "2014-11-16",
+    "firstPrize": "479804",
+    "last2": "25",
+    "source": "csv"
+  },
+  {
+    "date": "2014-11-01",
+    "firstPrize": "206608",
+    "last2": "44",
+    "source": "csv"
+  },
+  {
+    "date": "2014-10-16",
+    "firstPrize": "656409",
+    "last2": "94",
+    "source": "csv"
+  },
+  {
+    "date": "2014-10-01",
+    "firstPrize": "375615",
+    "last2": "44",
+    "source": "csv"
+  },
+  {
+    "date": "2014-09-16",
+    "firstPrize": "772269",
+    "last2": "35",
+    "source": "csv"
+  },
+  {
+    "date": "2014-09-01",
+    "firstPrize": "856763",
+    "last2": "22",
+    "source": "csv"
+  },
+  {
+    "date": "2014-08-16",
+    "firstPrize": "662842",
+    "last2": "91",
+    "source": "csv"
+  },
+  {
+    "date": "2014-08-01",
+    "firstPrize": "766391",
+    "last2": "82",
+    "source": "csv"
+  },
+  {
+    "date": "2014-07-16",
+    "firstPrize": "468728",
+    "last2": "45",
+    "source": "csv"
+  },
+  {
+    "date": "2014-07-01",
+    "firstPrize": "378477",
+    "last2": "39",
+    "source": "csv"
+  },
+  {
+    "date": "2014-06-16",
+    "firstPrize": "673920",
+    "last2": "95",
+    "source": "csv"
+  },
+  {
+    "date": "2014-06-01",
+    "firstPrize": "781198",
+    "last2": "18",
+    "source": "csv"
+  },
+  {
+    "date": "2014-05-16",
+    "firstPrize": "087523",
+    "last2": "20",
+    "source": "csv"
+  },
+  {
+    "date": "2014-05-02",
+    "firstPrize": "103297",
+    "last2": "52",
+    "source": "csv"
+  },
+  {
+    "date": "2014-04-16",
+    "firstPrize": "153406",
+    "last2": "26",
+    "source": "csv"
+  },
+  {
+    "date": "2014-04-01",
+    "firstPrize": "028866",
+    "last2": "95",
+    "source": "csv"
+  },
+  {
+    "date": "2014-03-16",
+    "firstPrize": "531404",
+    "last2": "79",
+    "source": "csv"
+  },
+  {
+    "date": "2014-03-01",
+    "firstPrize": "906318",
+    "last2": "35",
+    "source": "csv"
+  },
+  {
+    "date": "2014-02-16",
+    "firstPrize": "384245",
+    "last2": "01",
+    "source": "csv"
+  },
+  {
+    "date": "2014-02-01",
+    "firstPrize": "180149",
+    "last2": "95",
+    "source": "csv"
+  },
+  {
+    "date": "2014-01-16",
+    "firstPrize": "306902",
+    "last2": "52",
+    "source": "csv"
+  },
+  {
+    "date": "2013-12-30",
+    "firstPrize": "561072",
+    "last2": "48",
+    "source": "csv"
+  },
+  {
+    "date": "2013-12-16",
+    "firstPrize": "341767",
+    "last2": "79",
+    "source": "csv"
+  },
+  {
+    "date": "2013-12-01",
+    "firstPrize": "168795",
+    "last2": "27",
+    "source": "csv"
+  },
+  {
+    "date": "2013-11-16",
+    "firstPrize": "806925",
+    "last2": "28",
+    "source": "csv"
+  },
+  {
+    "date": "2013-11-01",
+    "firstPrize": "739804",
+    "last2": "47",
+    "source": "csv"
+  },
+  {
+    "date": "2013-10-16",
+    "firstPrize": "963289",
+    "last2": "60",
+    "source": "csv"
+  },
+  {
+    "date": "2013-10-01",
+    "firstPrize": "647882",
+    "last2": "14",
+    "source": "csv"
+  },
+  {
+    "date": "2013-09-16",
+    "firstPrize": "562684",
+    "last2": "63",
+    "source": "csv"
+  },
+  {
+    "date": "2013-09-01",
+    "firstPrize": "548123",
+    "last2": "05",
+    "source": "csv"
+  },
+  {
+    "date": "2013-08-16",
+    "firstPrize": "321327",
+    "last2": "20",
+    "source": "csv"
+  },
+  {
+    "date": "2013-08-01",
+    "firstPrize": "356435",
+    "last2": "82",
+    "source": "csv"
+  },
+  {
+    "date": "2013-07-16",
+    "firstPrize": "566996",
+    "last2": "86",
+    "source": "csv"
+  },
+  {
+    "date": "2013-07-01",
+    "firstPrize": "646905",
+    "last2": "51",
+    "source": "csv"
+  },
+  {
+    "date": "2013-06-16",
+    "firstPrize": "289673",
+    "last2": "69",
+    "source": "csv"
+  },
+  {
+    "date": "2013-06-01",
+    "firstPrize": "935489",
+    "last2": "90",
+    "source": "csv"
+  },
+  {
+    "date": "2013-05-16",
+    "firstPrize": "687125",
+    "last2": "56",
+    "source": "csv"
+  },
+  {
+    "date": "2013-05-02",
+    "firstPrize": "603458",
+    "last2": "07",
+    "source": "csv"
+  },
+  {
+    "date": "2013-04-16",
+    "firstPrize": "843846",
+    "last2": "86",
+    "source": "csv"
+  },
+  {
+    "date": "2013-04-01",
+    "firstPrize": "571688",
+    "last2": "53",
+    "source": "csv"
+  },
+  {
+    "date": "2013-03-16",
+    "firstPrize": "968433",
+    "last2": "52",
+    "source": "csv"
+  },
+  {
+    "date": "2013-03-01",
+    "firstPrize": "976241",
+    "last2": "37",
+    "source": "csv"
+  },
+  {
+    "date": "2013-02-16",
+    "firstPrize": "368257",
+    "last2": "09",
+    "source": "csv"
+  },
+  {
+    "date": "2013-02-01",
+    "firstPrize": "565566",
+    "last2": "66",
+    "source": "csv"
+  },
+  {
+    "date": "2013-01-16",
+    "firstPrize": "820981",
+    "last2": "08",
+    "source": "csv"
+  },
+  {
+    "date": "2012-12-30",
+    "firstPrize": "302358",
+    "last2": "00",
+    "source": "csv"
+  },
+  {
+    "date": "2012-12-16",
+    "firstPrize": "529524",
+    "last2": "72",
+    "source": "csv"
+  },
+  {
+    "date": "2012-12-01",
+    "firstPrize": "110443",
+    "last2": "43",
+    "source": "csv"
+  },
+  {
+    "date": "2012-11-16",
+    "firstPrize": "639500",
+    "last2": "15",
+    "source": "csv"
+  },
+  {
+    "date": "2012-11-01",
+    "firstPrize": "524694",
+    "last2": "63",
+    "source": "csv"
+  },
+  {
+    "date": "2012-10-16",
+    "firstPrize": "281343",
+    "last2": "28",
+    "source": "csv"
+  },
+  {
+    "date": "2012-10-01",
+    "firstPrize": "124025",
+    "last2": "58",
+    "source": "csv"
+  },
+  {
+    "date": "2012-09-16",
+    "firstPrize": "540143",
+    "last2": "79",
+    "source": "csv"
+  },
+  {
+    "date": "2012-09-01",
+    "firstPrize": "329997",
+    "last2": "07",
+    "source": "csv"
+  },
+  {
+    "date": "2012-08-16",
+    "firstPrize": "683877",
+    "last2": "28",
+    "source": "csv"
+  },
+  {
+    "date": "2012-08-01",
+    "firstPrize": "895590",
+    "last2": "50",
+    "source": "csv"
+  },
+  {
+    "date": "2012-07-16",
+    "firstPrize": "904050",
+    "last2": "11",
+    "source": "csv"
+  },
+  {
+    "date": "2012-07-01",
+    "firstPrize": "915900",
+    "last2": "60",
+    "source": "csv"
+  },
+  {
+    "date": "2012-06-16",
+    "firstPrize": "159373",
+    "last2": "51",
+    "source": "csv"
+  },
+  {
+    "date": "2012-06-01",
+    "firstPrize": "882727",
+    "last2": "38",
+    "source": "csv"
+  },
+  {
+    "date": "2012-05-16",
+    "firstPrize": "814418",
+    "last2": "31",
+    "source": "csv"
+  },
+  {
+    "date": "2012-05-02",
+    "firstPrize": "889501",
+    "last2": "29",
+    "source": "csv"
+  },
+  {
+    "date": "2012-04-16",
+    "firstPrize": "583470",
+    "last2": "62",
+    "source": "csv"
+  },
+  {
+    "date": "2012-04-01",
+    "firstPrize": "257562",
+    "last2": "69",
+    "source": "csv"
+  },
+  {
+    "date": "2012-03-16",
+    "firstPrize": "607064",
+    "last2": "08",
+    "source": "csv"
+  },
+  {
+    "date": "2012-03-01",
+    "firstPrize": "222518",
+    "last2": "79",
+    "source": "csv"
+  },
+  {
+    "date": "2012-02-16",
+    "firstPrize": "648684",
+    "last2": "18",
+    "source": "csv"
+  },
+  {
+    "date": "2012-02-01",
+    "firstPrize": "320605",
+    "last2": "32",
+    "source": "csv"
+  },
+  {
+    "date": "2012-01-16",
+    "firstPrize": "451445",
+    "last2": "81",
+    "source": "csv"
+  },
+  {
+    "date": "2011-12-30",
+    "firstPrize": "526402",
+    "last2": "65",
+    "source": "csv"
+  },
+  {
+    "date": "2011-12-16",
+    "firstPrize": "884178",
+    "last2": "21",
+    "source": "csv"
+  },
+  {
+    "date": "2011-12-01",
+    "firstPrize": "408147",
+    "last2": "02",
+    "source": "csv"
+  },
+  {
+    "date": "2011-11-16",
+    "firstPrize": "997777",
+    "last2": "57",
+    "source": "csv"
+  },
+  {
+    "date": "2011-11-01",
+    "firstPrize": "805540",
+    "last2": "54",
+    "source": "csv"
+  },
+  {
+    "date": "2011-10-16",
+    "firstPrize": "955756",
+    "last2": "83",
+    "source": "csv"
+  },
+  {
+    "date": "2011-10-01",
+    "firstPrize": "511052",
+    "last2": "15",
+    "source": "csv"
+  },
+  {
+    "date": "2011-09-16",
+    "firstPrize": "731198",
+    "last2": "28",
+    "source": "csv"
+  },
+  {
+    "date": "2011-09-01",
+    "firstPrize": "724533",
+    "last2": "85",
+    "source": "csv"
+  },
+  {
+    "date": "2011-08-16",
+    "firstPrize": "536960",
+    "last2": "62",
+    "source": "csv"
+  },
+  {
+    "date": "2011-08-01",
+    "firstPrize": "218756",
+    "last2": "12",
+    "source": "csv"
+  },
+  {
+    "date": "2011-07-16",
+    "firstPrize": "116556",
+    "last2": "12",
+    "source": "csv"
+  },
+  {
+    "date": "2011-07-01",
+    "firstPrize": "622953",
+    "last2": "51",
+    "source": "csv"
+  },
+  {
+    "date": "2011-06-16",
+    "firstPrize": "351276",
+    "last2": "88",
+    "source": "csv"
+  },
+  {
+    "date": "2011-06-01",
+    "firstPrize": "562370",
+    "last2": "46",
+    "source": "csv"
+  },
+  {
+    "date": "2011-05-16",
+    "firstPrize": "406417",
+    "last2": "05",
+    "source": "csv"
+  },
+  {
+    "date": "2011-05-02",
+    "firstPrize": "054136",
+    "last2": "85",
+    "source": "csv"
+  },
+  {
+    "date": "2011-04-16",
+    "firstPrize": "825988",
+    "last2": "44",
+    "source": "csv"
+  },
+  {
+    "date": "2011-04-01",
+    "firstPrize": "814931",
+    "last2": "01",
+    "source": "csv"
+  },
+  {
+    "date": "2011-03-16",
+    "firstPrize": "593331",
+    "last2": "96",
+    "source": "csv"
+  },
+  {
+    "date": "2011-02-16",
+    "firstPrize": "481746",
+    "last2": "27",
+    "source": "csv"
+  },
+  {
+    "date": "2011-02-01",
+    "firstPrize": "610089",
+    "last2": "55",
+    "source": "csv"
+  },
+  {
+    "date": "2011-01-16",
+    "firstPrize": "281062",
+    "last2": "23",
+    "source": "csv"
+  },
+  {
+    "date": "2010-12-30",
+    "firstPrize": "884112",
+    "last2": "49",
+    "source": "csv"
+  },
+  {
+    "date": "2010-12-16",
+    "firstPrize": "334380",
+    "last2": "24",
+    "source": "csv"
+  },
+  {
+    "date": "2010-12-01",
+    "firstPrize": "181752",
+    "last2": "09",
+    "source": "csv"
+  },
+  {
+    "date": "2010-11-16",
+    "firstPrize": "813993",
+    "last2": "43",
+    "source": "csv"
+  },
+  {
+    "date": "2010-11-01",
+    "firstPrize": "191100",
+    "last2": "59",
+    "source": "csv"
+  },
+  {
+    "date": "2010-10-16",
+    "firstPrize": "621377",
+    "last2": "42",
+    "source": "csv"
+  },
+  {
+    "date": "2010-10-01",
+    "firstPrize": "488372",
+    "last2": "02",
+    "source": "csv"
+  },
+  {
+    "date": "2010-09-16",
+    "firstPrize": "017422",
+    "last2": "66",
+    "source": "csv"
+  },
+  {
+    "date": "2010-09-01",
+    "firstPrize": "354656",
+    "last2": "11",
+    "source": "csv"
+  },
+  {
+    "date": "2010-08-16",
+    "firstPrize": "911097",
+    "last2": "64",
+    "source": "csv"
+  },
+  {
+    "date": "2010-08-01",
+    "firstPrize": "210008",
+    "last2": "10",
+    "source": "csv"
+  },
+  {
+    "date": "2010-07-16",
+    "firstPrize": "180387",
+    "last2": "34",
+    "source": "csv"
+  },
+  {
+    "date": "2010-07-01",
+    "firstPrize": "480239",
+    "last2": "68",
+    "source": "csv"
+  },
+  {
+    "date": "2010-06-16",
+    "firstPrize": "500104",
+    "last2": "73",
+    "source": "csv"
+  },
+  {
+    "date": "2010-06-01",
+    "firstPrize": "444874",
+    "last2": "81",
+    "source": "csv"
+  },
+  {
+    "date": "2010-05-16",
+    "firstPrize": "480012",
+    "last2": "12",
+    "source": "csv"
+  },
+  {
+    "date": "2010-05-02",
+    "firstPrize": "360371",
+    "last2": "06",
+    "source": "csv"
+  },
+  {
+    "date": "2010-04-16",
+    "firstPrize": "211743",
+    "last2": "96",
+    "source": "csv"
+  },
+  {
+    "date": "2010-04-01",
+    "firstPrize": "959517",
+    "last2": "22",
+    "source": "csv"
+  },
+  {
+    "date": "2010-03-16",
+    "firstPrize": "364222",
+    "last2": "97",
+    "source": "csv"
+  },
+  {
+    "date": "2010-03-01",
+    "firstPrize": "215227",
+    "last2": "97",
+    "source": "csv"
+  },
+  {
+    "date": "2010-02-16",
+    "firstPrize": "133707",
+    "last2": "03",
+    "source": "csv"
+  },
+  {
+    "date": "2010-02-01",
+    "firstPrize": "186312",
+    "last2": "14",
+    "source": "csv"
+  },
+  {
+    "date": "2010-01-16",
+    "firstPrize": "073577",
+    "last2": "67",
+    "source": "csv"
+  },
+  {
+    "date": "2009-12-30",
+    "firstPrize": "994304",
+    "last2": "87",
+    "source": "csv"
+  },
+  {
+    "date": "2009-12-16",
+    "firstPrize": "685141",
+    "last2": "05",
+    "source": "csv"
+  },
+  {
+    "date": "2009-12-01",
+    "firstPrize": "776980",
+    "last2": "59",
+    "source": "csv"
+  },
+  {
+    "date": "2009-11-16",
+    "firstPrize": "055986",
+    "last2": "58",
+    "source": "csv"
+  },
+  {
+    "date": "2009-11-01",
+    "firstPrize": "689140",
+    "last2": "85",
+    "source": "csv"
+  },
+  {
+    "date": "2009-10-16",
+    "firstPrize": "258487",
+    "last2": "00",
+    "source": "csv"
+  },
+  {
+    "date": "2009-10-01",
+    "firstPrize": "169387",
+    "last2": "06",
+    "source": "csv"
+  },
+  {
+    "date": "2009-09-16",
+    "firstPrize": "202912",
+    "last2": "48",
+    "source": "csv"
+  },
+  {
+    "date": "2009-09-01",
+    "firstPrize": "015865",
+    "last2": "32",
+    "source": "csv"
+  },
+  {
+    "date": "2009-08-16",
+    "firstPrize": "462933",
+    "last2": "96",
+    "source": "csv"
+  },
+  {
+    "date": "2009-08-01",
+    "firstPrize": "154986",
+    "last2": "92",
+    "source": "csv"
+  },
+  {
+    "date": "2009-07-16",
+    "firstPrize": "000816",
+    "last2": "94",
+    "source": "csv"
+  },
+  {
+    "date": "2009-07-01",
+    "firstPrize": "207542",
+    "last2": "66",
+    "source": "csv"
+  },
+  {
+    "date": "2009-06-16",
+    "firstPrize": "930456",
+    "last2": "15",
+    "source": "csv"
+  },
+  {
+    "date": "2009-06-01",
+    "firstPrize": "777661",
+    "last2": "26",
+    "source": "csv"
+  },
+  {
+    "date": "2009-05-16",
+    "firstPrize": "111411",
+    "last2": "54",
+    "source": "csv"
+  },
+  {
+    "date": "2009-05-02",
+    "firstPrize": "294452",
+    "last2": "11",
+    "source": "csv"
+  },
+  {
+    "date": "2009-04-16",
+    "firstPrize": "368415",
+    "last2": "33",
+    "source": "csv"
+  },
+  {
+    "date": "2009-04-01",
+    "firstPrize": "816578",
+    "last2": "50",
+    "source": "csv"
+  },
+  {
+    "date": "2009-03-16",
+    "firstPrize": "268812",
+    "last2": "36",
+    "source": "csv"
+  },
+  {
+    "date": "2009-03-01",
+    "firstPrize": "553091",
+    "last2": "67",
+    "source": "csv"
+  },
+  {
+    "date": "2009-02-16",
+    "firstPrize": "038730",
+    "last2": "93",
+    "source": "csv"
+  },
+  {
+    "date": "2009-02-01",
+    "firstPrize": "534533",
+    "last2": "69",
+    "source": "csv"
+  },
+  {
+    "date": "2009-01-16",
+    "firstPrize": "743212",
+    "last2": "25",
+    "source": "csv"
+  },
+  {
+    "date": "2008-12-30",
+    "firstPrize": "218596",
+    "last2": "22",
+    "source": "csv"
+  },
+  {
+    "date": "2008-12-16",
+    "firstPrize": "074114",
+    "last2": "25",
+    "source": "csv"
+  },
+  {
+    "date": "2008-12-01",
+    "firstPrize": "205434",
+    "last2": "05",
+    "source": "csv"
+  },
+  {
+    "date": "2008-11-16",
+    "firstPrize": "002612",
+    "last2": "20",
+    "source": "csv"
+  },
+  {
+    "date": "2008-11-01",
+    "firstPrize": "272028",
+    "last2": "76",
+    "source": "csv"
+  },
+  {
+    "date": "2008-10-16",
+    "firstPrize": "431277",
+    "last2": "98",
+    "source": "csv"
+  },
+  {
+    "date": "2008-10-01",
+    "firstPrize": "882911",
+    "last2": "67",
+    "source": "csv"
+  },
+  {
+    "date": "2008-09-16",
+    "firstPrize": "012377",
+    "last2": "56",
+    "source": "csv"
+  },
+  {
+    "date": "2008-09-01",
+    "firstPrize": "695993",
+    "last2": "09",
+    "source": "csv"
+  },
+  {
+    "date": "2008-08-16",
+    "firstPrize": "380377",
+    "last2": "36",
+    "source": "csv"
+  },
+  {
+    "date": "2008-08-01",
+    "firstPrize": "850348",
+    "last2": "11",
+    "source": "csv"
+  },
+  {
+    "date": "2008-07-16",
+    "firstPrize": "257374",
+    "last2": "41",
+    "source": "csv"
+  },
+  {
+    "date": "2008-07-01",
+    "firstPrize": "943671",
+    "last2": "50",
+    "source": "csv"
+  },
+  {
+    "date": "2008-06-16",
+    "firstPrize": "729111",
+    "last2": "75",
+    "source": "csv"
+  },
+  {
+    "date": "2008-06-01",
+    "firstPrize": "414875",
+    "last2": "35",
+    "source": "csv"
+  },
+  {
+    "date": "2008-05-16",
+    "firstPrize": "329231",
+    "last2": "69",
+    "source": "csv"
+  },
+  {
+    "date": "2008-05-02",
+    "firstPrize": "453011",
+    "last2": "62",
+    "source": "csv"
+  },
+  {
+    "date": "2008-04-16",
+    "firstPrize": "982800",
+    "last2": "64",
+    "source": "csv"
+  },
+  {
+    "date": "2008-04-01",
+    "firstPrize": "012653",
+    "last2": "71",
+    "source": "csv"
+  },
+  {
+    "date": "2008-03-16",
+    "firstPrize": "074946",
+    "last2": "33",
+    "source": "csv"
+  },
+  {
+    "date": "2008-03-01",
+    "firstPrize": "936685",
+    "last2": "05",
+    "source": "csv"
+  },
+  {
+    "date": "2008-02-16",
+    "firstPrize": "137054",
+    "last2": "80",
+    "source": "csv"
+  },
+  {
+    "date": "2008-02-01",
+    "firstPrize": "212684",
+    "last2": "26",
+    "source": "csv"
+  },
+  {
+    "date": "2008-01-16",
+    "firstPrize": "556010",
+    "last2": "81",
+    "source": "csv"
+  },
+  {
+    "date": "2007-12-30",
+    "firstPrize": "595411",
+    "last2": "81",
+    "source": "csv"
+  },
+  {
+    "date": "2007-12-16",
+    "firstPrize": "513501",
+    "last2": "96",
+    "source": "csv"
+  },
+  {
+    "date": "2007-11-16",
+    "firstPrize": "562481",
+    "last2": "73",
+    "source": "csv"
+  },
+  {
+    "date": "2007-11-01",
+    "firstPrize": "927907",
+    "last2": "88",
+    "source": "csv"
+  },
+  {
+    "date": "2007-10-16",
+    "firstPrize": "032988",
+    "last2": "48",
+    "source": "csv"
+  },
+  {
+    "date": "2007-10-01",
+    "firstPrize": "430667",
+    "last2": "76",
+    "source": "csv"
+  },
+  {
+    "date": "2007-09-16",
+    "firstPrize": "499336",
+    "last2": "45",
+    "source": "csv"
+  },
+  {
+    "date": "2007-09-01",
+    "firstPrize": "331810",
+    "last2": "69",
+    "source": "csv"
+  },
+  {
+    "date": "2007-08-16",
+    "firstPrize": "476207",
+    "last2": "93",
+    "source": "csv"
+  },
+  {
+    "date": "2007-08-01",
+    "firstPrize": "429924",
+    "last2": "29",
+    "source": "csv"
+  },
+  {
+    "date": "2007-07-16",
+    "firstPrize": "527384",
+    "last2": "77",
+    "source": "csv"
+  },
+  {
+    "date": "2007-07-01",
+    "firstPrize": "565151",
+    "last2": "76",
+    "source": "csv"
+  },
+  {
+    "date": "2007-06-16",
+    "firstPrize": "393194",
+    "last2": "41",
+    "source": "csv"
+  },
+  {
+    "date": "2007-06-01",
+    "firstPrize": "836393",
+    "last2": "05",
+    "source": "csv"
+  },
+  {
+    "date": "2007-05-16",
+    "firstPrize": "232897",
+    "last2": "25",
+    "source": "csv"
+  },
+  {
+    "date": "2007-05-02",
+    "firstPrize": "430374",
+    "last2": "81",
+    "source": "csv"
+  },
+  {
+    "date": "2007-04-16",
+    "firstPrize": "405105",
+    "last2": "63",
+    "source": "csv"
+  },
+  {
+    "date": "2007-04-01",
+    "firstPrize": "622780",
+    "last2": "93",
+    "source": "csv"
+  },
+  {
+    "date": "2007-03-16",
+    "firstPrize": "876763",
+    "last2": "85",
+    "source": "csv"
+  },
+  {
+    "date": "2007-03-01",
+    "firstPrize": "742425",
+    "last2": "61",
+    "source": "csv"
+  },
+  {
+    "date": "2007-02-16",
+    "firstPrize": "277859",
+    "last2": "95",
+    "source": "csv"
+  },
+  {
+    "date": "2007-02-01",
+    "firstPrize": "769925",
+    "last2": "56",
+    "source": "csv"
+  },
+  {
+    "date": "2007-01-16",
+    "firstPrize": "838739",
+    "last2": "54",
+    "source": "csv"
+  },
+  {
+    "date": "2006-12-30",
+    "firstPrize": "778584",
+    "last2": "07",
+    "source": "csv"
+  }
+]

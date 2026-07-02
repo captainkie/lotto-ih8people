@@ -1,0 +1,26 @@
+// Prisma schema — our own DB (Supabase Postgres) is the single source of truth.
+// The app reads only from here; no runtime dependency on third-party APIs.
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL") // pooled (PgBouncer, port 6543)
+  directUrl = env("DIRECT_URL")   // direct (port 5432) for migrations
+}
+
+/// One lottery draw. Thai lottery draws on the 1st and 16th of each month.
+/// We store only what the app needs, tracked separately:
+///   firstPrize = รางวัลที่ 1 (6 digits), last2 = เลขท้าย 2 ตัว (2 digits).
+model Draw {
+  id         Int      @id @default(autoincrement())
+  date       DateTime @unique @db.Date
+  firstPrize String   @db.VarChar(6)
+  last2      String   @db.VarChar(2)
+  source     String   @default("sanook") @db.VarChar(24)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @default(now()) @updatedAt
+
+  @@index([date])
+}
