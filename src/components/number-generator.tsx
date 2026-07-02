@@ -36,15 +36,18 @@ export function NumberGenerator({ draws }: { draws: Draw[] }) {
       </CardHeader>
       <CardContent>
         <div className="grid gap-6 md:grid-cols-[auto_1fr] md:items-center">
-          <div className="mx-auto md:mx-0">
+          <div className="mx-auto flex flex-col items-center gap-2 md:mx-0">
             <Image
-              src="/tao-wessuwan.png"
-              alt="ท้าวเวสสุวรรณ"
+              src="/ajarn-yube.jpg"
+              alt="อาจารย์ยูเบะ"
               width={150}
               height={150}
-              className="drop-shadow-[0_8px_28px_rgba(227,179,65,0.4)]"
+              className="size-[150px] rounded-2xl object-cover drop-shadow-[0_8px_28px_rgba(227,179,65,0.4)] ring-2 ring-primary/40"
               priority
             />
+            <div className="text-center text-sm font-medium text-primary">
+              ใบ้โดย อาจารย์ยูเบะ
+            </div>
           </div>
 
           <div className="space-y-6">
