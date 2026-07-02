@@ -25,8 +25,15 @@ export function sanookUrl(isoDate: string): string {
 export function parseSanookHtml(html: string): { firstPrize: string; last2: string } | null {
   const text = cheerio.load(html).root().text().replace(/\s+/g, " ");
 
-  const firstMatch = text.match(/รางวัลที่\s*1[\s\S]*?บาท\s*([0-9]{6})/);
-  const last2Match = text.match(/เลขท้าย\s*2\s*ตัว[\s\S]*?บาท\s*([0-9]{2})/);
+  // The prize number appears right after the label's "...บาท", but the page can
+  // place literal "\r\n"/markup between "บาท" and the number, so we skip any
+  // non-digit characters ([^0-9]*) rather than only whitespace. last2 is
+  // anchored on "รางวัลเลขท้าย 2 ตัว" (the result label) so a bare "เลขท้าย 2 ตัว"
+  // elsewhere (menu/footer) cannot hijack the match onto the 1st-prize digits.
+  const firstMatch = text.match(/รางวัลที่\s*1[\s\S]*?บาท[^0-9]*([0-9]{6})/);
+  const last2Match = text.match(
+    /รางวัลเลขท้าย\s*2\s*ตัว[\s\S]*?บาท[^0-9]*([0-9]{2})/,
+  );
 
   if (!firstMatch || !last2Match) return null;
 

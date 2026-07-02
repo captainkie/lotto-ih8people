@@ -29,3 +29,4 @@
 {"t":0,"agent":"a50b2bb","agent_type":"executor","event":"agent_stop","success":true,"duration_ms":151846}
 {"t":0,"agent":"a50b2bb","agent_type":"executor","event":"agent_stop","success":true,"duration_ms":154985}
 {"t":0,"agent":"a50b2bb","agent_type":"executor","event":"agent_stop","success":true,"duration_ms":159202}
+{"t":0,"agent":"a2991ce","agent_type":"unknown","event":"agent_stop","success":true}

@@ -1,0 +1,55 @@
+- generic [active] [ref=f7e1]:
+  - link "Skip to content":
+    - /url: "#geist-skip-nav"
+  - generic [ref=f7e3]:
+    - banner [ref=f7e4]:
+      - link "Vercel logo":
+        - /url: /home
+        - button "Vercel Logo":
+          - img "Vercel Logo"
+      - navigation [ref=f7e5]:
+        - navigation [ref=f7e6]:
+          - link "Sign Up" [ref=f7e7] [cursor=pointer]:
+            - /url: /signup?next=%2Fsso-api%3Furl%3Dhttps%253A%252F%252Flotto-ih8people-captainkies-projects.vercel.app%252F%26nonce%3D57acc7db50b1d60e2ebc6876ce39a83f3f07bcc1018d5e98868d23bf8107e87a
+            - paragraph [ref=f7e9]: Sign Up
+    - main [ref=f7e10]:
+      - generic [ref=f7e12]:
+        - heading "Log in to Vercel" [level=1] [ref=f7e15]
+        - generic [ref=f7e16]:
+          - generic [ref=f7e17]:
+            - textbox "Email Address" [ref=f7e19]
+            - button "Continue with Email" [ref=f7e21] [cursor=pointer]:
+              - generic [ref=f7e22]: Continue with Email
+          - generic [ref=f7e24]:
+            - button "Continue with Google" [ref=f7e25] [cursor=pointer]:
+              - img [ref=f7e28]
+              - generic [ref=f7e34]:
+                - generic [ref=f7e35]: Continue with
+                - text: Google
+            - button "Continue with GitHub" [ref=f7e36] [cursor=pointer]:
+              - img [ref=f7e38]
+              - generic [ref=f7e42]:
+                - generic [ref=f7e43]: Continue with
+                - text: GitHub
+            - button "Continue with Apple" [ref=f7e44] [cursor=pointer]:
+              - img [ref=f7e46]
+              - generic [ref=f7e49]:
+                - generic [ref=f7e50]: Continue with
+                - text: Apple
+            - button "Continue with SAML SSO" [ref=f7e52] [cursor=pointer]:
+              - img [ref=f7e54]
+              - generic [ref=f7e56]: Continue with SAML SSO
+            - button "Continue with Passkey" [ref=f7e57] [cursor=pointer]:
+              - img [ref=f7e59]
+              - generic [ref=f7e61]: Continue with Passkey
+            - button "Show other options" [ref=f7e62] [cursor=pointer]:
+              - generic [ref=f7e63]: Show other options
+        - paragraph [ref=f7e65]:
+          - text: Don't have an account?
+          - link "Sign Up" [ref=f7e66] [cursor=pointer]:
+            - /url: /signup?next=%2Fsso-api%3Furl%3Dhttps%253A%252F%252Flotto-ih8people-captainkies-projects.vercel.app%252F%26nonce%3D57acc7db50b1d60e2ebc6876ce39a83f3f07bcc1018d5e98868d23bf8107e87a
+      - generic [ref=f7e69]:
+        - link "Terms" [ref=f7e70] [cursor=pointer]:
+          - /url: /legal/terms
+        - link "Privacy Policy" [ref=f7e71] [cursor=pointer]:
+          - /url: /legal/privacy-policy

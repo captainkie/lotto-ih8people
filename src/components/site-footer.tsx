@@ -27,6 +27,27 @@ export function SiteFooter() {
             © {year} {siteConfig.domain}
           </span>
         </div>
+        <div className="border-t border-border/40 pt-3 text-center text-xs text-muted-foreground">
+          พัฒนาโดย{" "}
+          <a
+            href="https://github.com/captainkie"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-foreground hover:text-primary"
+          >
+            captainkie
+          </a>{" "}
+          · สร้างด้วย 🤖{" "}
+          <a
+            href="https://claude.com/claude-code"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-foreground hover:text-primary"
+          >
+            Claude
+          </a>{" "}
+          (Anthropic)
+        </div>
       </div>
     </footer>
   );
