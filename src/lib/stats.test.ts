@@ -2,6 +2,7 @@
 // (no dependency on data/history.json).
 import { describe, it, expect } from "vitest";
 import type { Draw } from "./types";
+import { emptyExtraPrizes } from "./types";
 import {
   last2Frequency,
   digitFrequencyByPosition,
@@ -12,11 +13,20 @@ import {
   ewmaLast2,
   suggestLast2,
   suggestFirstPrize,
+  fitConcentration,
+  posteriorPredictive,
+  backtestLast2,
+  entropyLast2,
+  posteriorLast2,
+  gapHazardLast2,
+  couponCollectorDraws,
+  expectedReturn,
 } from "./stats";
 
 /** Build a draw with sensible defaults; dates auto-descend (newest-first). */
 function draw(last2: string, firstPrize = "123456", date = "2024-01-01"): Draw {
-  return { date, firstPrize, last2, source: "test" };
+  // The stats core reads only firstPrize/last2; extra prize tiers stay empty here.
+  return { date, firstPrize, last2, ...emptyExtraPrizes(), source: "test" };
 }
 
 /** Newest-first draws with descending synthetic dates. */
@@ -262,5 +272,281 @@ describe("suggestFirstPrize", () => {
 
   it("never throws on empty input", () => {
     expect(suggestFirstPrize([])).toMatch(/^\d{6}$/);
+  });
+});
+
+describe("fitConcentration", () => {
+  it("returns alpha0 = Infinity when counts are no more spread out than uniform", () => {
+    const counts = new Array(100).fill(5); // perfectly flat -> chi2 = 0
+    const fit = fitConcentration(counts);
+    expect(fit.chi2).toBeCloseTo(0, 6);
+    expect(fit.ratio).toBeCloseTo(0, 6);
+    expect(fit.alpha0).toBe(Infinity);
+    expect(fit.uniform).toBe(true);
+  });
+
+  it("returns a finite alpha0 when counts are genuinely overdispersed", () => {
+    const counts = new Array(100).fill(1);
+    counts[7] = 400;
+    const fit = fitConcentration(counts);
+    expect(fit.ratio).toBeGreaterThan(1);
+    expect(Number.isFinite(fit.alpha0)).toBe(true);
+    expect(fit.alpha0).toBeGreaterThan(0);
+    expect(fit.uniform).toBe(false);
+  });
+
+  it("pins alpha0 at 0 when every draw lands in one cell (ratio = n)", () => {
+    // Full degeneracy is the upper bound on overdispersion, so the prior gets no
+    // weight at all and the posterior is the empirical distribution.
+    const counts = new Array(100).fill(0);
+    counts[7] = 500;
+    const fit = fitConcentration(counts);
+    expect(fit.ratio).toBeCloseTo(500, 6);
+    expect(fit.alpha0).toBe(0);
+    expect(fit.uniform).toBe(false);
+  });
+
+  it("shrinks toward uniform as overdispersion weakens (alpha0 grows)", () => {
+    // Two datasets, same n, the second only mildly lumpy.
+    const strong = new Array(100).fill(0);
+    for (let i = 0; i < 10; i++) strong[i] = 50;
+    const mild = new Array(100).fill(5);
+    mild[0] = 12;
+    mild[1] = 0;
+    const a = fitConcentration(strong);
+    const b = fitConcentration(mild);
+    expect(a.alpha0).toBeLessThan(b.alpha0);
+  });
+
+  it("reports ratio as chi2 / df", () => {
+    const counts = new Array(100).fill(4);
+    counts[3] = 20;
+    const fit = fitConcentration(counts);
+    expect(fit.ratio).toBeCloseTo(fit.chi2 / fit.df, 10);
+  });
+
+  it("stays uniform on empty / degenerate input", () => {
+    expect(fitConcentration(new Array(100).fill(0)).uniform).toBe(true);
+    expect(fitConcentration([]).uniform).toBe(true);
+  });
+});
+
+describe("posteriorPredictive", () => {
+  it("sums to 1", () => {
+    const counts = new Array(100).fill(0);
+    counts[1] = 30;
+    counts[2] = 10;
+    expect(posteriorPredictive(counts).reduce((s, p) => s + p, 0)).toBeCloseTo(1, 10);
+  });
+
+  it("is exactly uniform when the fit finds no overdispersion", () => {
+    const p = posteriorPredictive(new Array(100).fill(5));
+    for (const x of p) expect(x).toBeCloseTo(1 / 100, 12);
+  });
+
+  it("tilts toward observed counts when overdispersion is real", () => {
+    const counts = new Array(100).fill(0);
+    counts[7] = 500;
+    const p = posteriorPredictive(counts);
+    expect(p[7]).toBeGreaterThan(p[0]);
+    expect(p[7]).toBeGreaterThan(1 / 100);
+  });
+
+  it("returns [] for an empty category list", () => {
+    expect(posteriorPredictive([])).toEqual([]);
+  });
+});
+
+describe("suggestLast2 / suggestFirstPrize modes", () => {
+  const draws = series([
+    { last2: "07" },
+    { last2: "07" },
+    { last2: "42" },
+    { last2: "13" },
+    { last2: "88" },
+  ]);
+
+  it("returns distinct valid pairs in every mode", () => {
+    for (const mode of ["posterior", "hot", "overdue"] as const) {
+      const picks = suggestLast2(draws, { count: 6, mode, seed: 3 });
+      expect(picks).toHaveLength(6);
+      expect(new Set(picks).size).toBe(6);
+      for (const p of picks) expect(p).toMatch(/^\d{2}$/);
+    }
+  });
+
+  it("returns a 6-digit string in every mode for the first prize", () => {
+    for (const mode of ["posterior", "hot", "overdue"] as const) {
+      expect(suggestFirstPrize(draws, { mode, seed: 3 })).toMatch(/^\d{6}$/);
+    }
+  });
+
+  it("defaults to posterior mode", () => {
+    expect(suggestLast2(draws, { count: 6, seed: 9 })).toEqual(
+      suggestLast2(draws, { count: 6, seed: 9, mode: "posterior" })
+    );
+  });
+});
+
+describe("backtestLast2", () => {
+  /** Deterministic pseudo-random last-2 series (no Math.random, so tests are stable). */
+  function randomSeries(n: number, seed = 1): Draw[] {
+    let a = seed >>> 0;
+    const next = () => {
+      a = (a + 0x6d2b79f5) | 0;
+      let t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+    const out: Draw[] = [];
+    for (let i = 0; i < n; i++) {
+      const d = new Date(Date.UTC(2000, 0, 1 + i));
+      out.push({
+        date: d.toISOString().slice(0, 10),
+        firstPrize: "123456",
+        last2: String(Math.floor(next() * 100)).padStart(2, "0"),
+        ...emptyExtraPrizes(),
+        source: "test",
+      });
+    }
+    return out.reverse(); // newest-first
+  }
+
+  it("is deterministic for the same input", () => {
+    const draws = randomSeries(300);
+    const a = backtestLast2(draws, { count: 6, warmup: 100, reps: 3 });
+    const b = backtestLast2(draws, { count: 6, warmup: 100, reps: 3 });
+    expect(a.rows.map((r) => r.rate)).toEqual(b.rows.map((r) => r.rate));
+  });
+
+  it("scores every strategy over the same trials with valid rates", () => {
+    const res = backtestLast2(randomSeries(300, 2), { count: 6, warmup: 100, reps: 3 });
+    expect(res.rows).toHaveLength(6);
+    expect(res.trials).toBe(200);
+    expect(res.baseline).toBeCloseTo(0.06, 12);
+    for (const r of res.rows) {
+      expect(r.trials).toBe(res.trials);
+      expect(r.rate).toBeGreaterThanOrEqual(0);
+      expect(r.rate).toBeLessThanOrEqual(1);
+      expect(r.ci95[0]).toBeLessThanOrEqual(r.rate + 1e-9);
+      expect(r.ci95[1]).toBeGreaterThanOrEqual(r.rate - 1e-9);
+    }
+    // Sorted best-first.
+    for (let i = 1; i < res.rows.length; i++) {
+      expect(res.rows[i - 1].rate).toBeGreaterThanOrEqual(res.rows[i].rate);
+    }
+  });
+
+  it("stays near chance on genuinely random data", () => {
+    const res = backtestLast2(randomSeries(400, 7), { count: 6, warmup: 120, reps: 10 });
+    for (const r of res.rows) {
+      // Nothing should look like a real edge on data with no structure.
+      expect(Math.abs(r.rate - res.baseline)).toBeLessThan(0.05);
+    }
+  });
+
+  it("DETECTS a real edge when one exists (guards against a blind harness)", () => {
+    // 40% of draws are forced to "07"; a hot-numbers strategy must notice.
+    const base = randomSeries(400, 11).reverse(); // oldest-first to rewrite
+    const rigged = base.map((d, i) =>
+      i % 5 < 2 ? { ...d, last2: "07" } : d
+    );
+    const draws = rigged.reverse(); // back to newest-first
+    const res = backtestLast2(draws, { count: 6, warmup: 120, reps: 10, selection: "topk" });
+    const hot = res.rows.find((r) => r.key === "hot")!;
+    const uniform = res.rows.find((r) => r.key === "uniform")!;
+    expect(hot.rate).toBeGreaterThan(uniform.rate + 0.2);
+    expect(hot.pValue).toBeLessThan(0.001);
+  });
+
+  it("posterior degrades to the uniform baseline when the data is fair", () => {
+    // With a flat posterior, top-k must fall back to a uniform random subset
+    // rather than always playing 00-05.
+    const res = backtestLast2(randomSeries(400, 13), {
+      count: 6, warmup: 120, reps: 10, selection: "topk",
+    });
+    const posterior = res.rows.find((r) => r.key === "posterior")!;
+    const uniform = res.rows.find((r) => r.key === "uniform")!;
+    expect(Math.abs(posterior.rate - uniform.rate)).toBeLessThan(0.02);
+  });
+});
+
+describe("entropyLast2", () => {
+  it("reports maximum efficiency for a perfectly flat distribution", () => {
+    const res = entropyLast2(uniformLast2(5));
+    expect(res.maxBits).toBeCloseTo(Math.log2(100), 12);
+    expect(res.bits).toBeCloseTo(res.maxBits, 10);
+    expect(res.efficiency).toBeCloseTo(1, 10);
+    // Real uniform sampling is noisy, so perfectly flat data sits ABOVE the null
+    // band — "too even to be random" is itself detectable.
+    expect(res.withinNull).toBe(false);
+  });
+
+  it("drops sharply for a degenerate distribution", () => {
+    const draws = series(Array.from({ length: 50 }, () => ({ last2: "13" })));
+    const res = entropyLast2(draws);
+    expect(res.bits).toBeCloseTo(0, 10);
+    expect(res.withinNull).toBe(false);
+  });
+
+  it("handles empty input", () => {
+    const res = entropyLast2([]);
+    expect(res.bits).toBe(0);
+    expect(res.withinNull).toBe(false);
+  });
+});
+
+describe("posteriorLast2", () => {
+  it("returns 100 items whose means sum to 1", () => {
+    const items = posteriorLast2(series([{ last2: "07" }, { last2: "42" }]));
+    expect(items).toHaveLength(100);
+    expect(items.reduce((s, i) => s + i.mean, 0)).toBeCloseTo(1, 10);
+  });
+
+  it("brackets the mean and flags overlap with the fair 1%", () => {
+    const items = posteriorLast2(series([{ last2: "07" }, { last2: "42" }]));
+    for (const i of items) {
+      expect(i.lo).toBeLessThanOrEqual(i.mean);
+      expect(i.hi).toBeGreaterThanOrEqual(i.mean);
+      expect(i.coversFair).toBe(i.lo <= 0.01 && i.hi >= 0.01);
+    }
+  });
+
+  it("still covers 1% for the hottest number in a fair 468-draw sample", () => {
+    const draws = uniformLast2(5); // 500 draws, perfectly even
+    const items = posteriorLast2(draws);
+    expect(items.every((i) => i.coversFair)).toBe(true);
+  });
+});
+
+describe("gapHazardLast2", () => {
+  it("assigns exactly one hit per scored draw across all buckets", () => {
+    const draws = series(
+      Array.from({ length: 260 }, (_, i) => ({ last2: String(i % 100).padStart(2, "0") }))
+    );
+    const buckets = gapHazardLast2(draws, 150);
+    const totalHits = buckets.reduce((s, b) => s + b.hits, 0);
+    expect(totalHits).toBe(draws.length - 150);
+  });
+
+  it("gives every bucket 100 opportunities per scored draw", () => {
+    const draws = series(
+      Array.from({ length: 260 }, (_, i) => ({ last2: String(i % 100).padStart(2, "0") }))
+    );
+    const buckets = gapHazardLast2(draws, 150);
+    const totalOpps = buckets.reduce((s, b) => s + b.opportunities, 0);
+    expect(totalOpps).toBe((draws.length - 150) * 100);
+  });
+});
+
+describe("couponCollectorDraws / expectedReturn", () => {
+  it("matches the closed form k*H_k for k = 100", () => {
+    expect(couponCollectorDraws(100)).toBeCloseTo(518.7, 1);
+    expect(couponCollectorDraws(1)).toBeCloseTo(1, 12);
+  });
+
+  it("turns a payout multiple into an expected return per unit staked", () => {
+    expect(expectedReturn(90)).toBeCloseTo(0.9, 12);
+    expect(expectedReturn(100)).toBeCloseTo(1, 12); // break-even
   });
 });
