@@ -9,6 +9,7 @@ export const siteConfig = {
   nav: [
     { href: "#top", label: "หน้าแรก" },
     { href: "#last2", label: "เลขท้าย 2 ตัว" },
+    { href: "#randomness", label: "ใบรับรองความสุ่ม" },
     { href: "#first-prize", label: "รางวัลที่ 1" },
     { href: "#history", label: "ประวัติย้อนหลัง" },
   ],

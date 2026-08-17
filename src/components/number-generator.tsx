@@ -4,27 +4,56 @@ import Image from "next/image";
 import { useMemo, useState } from "react";
 import { Dice5 } from "lucide-react";
 import type { Draw } from "@/lib/types";
+import type { BacktestResult, SuggestMode } from "@/lib/stats";
 import { suggestFirstPrize, suggestLast2 } from "@/lib/stats";
 import { NumberBall } from "@/components/number-ball";
 import { Button } from "@/components/ui/button";
-import { Slider } from "@/components/ui/slider";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const COUNTS = [3, 6, 9];
 
+const MODES: Array<{ key: SuggestMode; label: string; blurb: string }> = [
+  {
+    key: "posterior",
+    label: "คณิตศาสตร์",
+    blurb: "สุ่มตาม posterior ที่ปรับตัวตามหลักฐานในข้อมูล — ไม่เอียงเข้าหา noise",
+  },
+  {
+    key: "hot",
+    label: "เลขฮอต",
+    blurb: "เอียงเข้าหาเลขที่ออกบ่อย — ความเชื่อยอดนิยม ลองดูคะแนนย้อนหลังข้างล่าง",
+  },
+  {
+    key: "overdue",
+    label: "เลขค้าง",
+    blurb: "เอียงเข้าหาเลขที่หายไปนาน — ความเชื่อยอดนิยม ลองดูคะแนนย้อนหลังข้างล่าง",
+  },
+];
+
 /** Interactive weighted-random generator for BOTH the 1st prize and last-2. */
-export function NumberGenerator({ draws }: { draws: Draw[] }) {
-  const [hot, setHot] = useState(50); // 0 = overdue-biased, 100 = hot-biased
+export function NumberGenerator({
+  draws,
+  backtest,
+}: {
+  draws: Draw[];
+  backtest: BacktestResult;
+}) {
+  const [mode, setMode] = useState<SuggestMode>("posterior");
   const [count, setCount] = useState(6);
   const [seed, setSeed] = useState(1);
 
-  const { first, last2 } = useMemo(() => {
-    const hotVsOverdue = hot / 100;
-    return {
-      first: suggestFirstPrize(draws, { hotVsOverdue, seed }).split(""),
-      last2: suggestLast2(draws, { count, hotVsOverdue, seed }),
-    };
-  }, [draws, hot, count, seed]);
+  const { first, last2 } = useMemo(
+    () => ({
+      first: suggestFirstPrize(draws, { mode, seed }).split(""),
+      last2: suggestLast2(draws, { count, mode, seed }),
+    }),
+    [draws, mode, count, seed]
+  );
+
+  const active = MODES.find((m) => m.key === mode)!;
+  const score = backtest.rows.find((r) => r.key === mode);
+  const baselineRow = backtest.rows.find((r) => r.key === "uniform");
+  const beatsChance = score ? score.rate >= backtest.baseline : true;
 
   return (
     <Card className="glow-gold overflow-hidden border-primary/30">
@@ -73,18 +102,43 @@ export function NumberGenerator({ draws }: { draws: Draw[] }) {
               </div>
             </div>
 
+            {/* Mode picker — each mode shows how it actually scored, walk-forward. */}
             <div className="space-y-2">
-              <div className="flex justify-between text-xs text-muted-foreground">
-                <span>ค้างนาน / เลขเย็น</span>
-                <span>เลขฮอต / ออกบ่อย</span>
+              <div className="text-xs text-muted-foreground">วิธีเลือกเลข</div>
+              <div className="flex flex-wrap gap-2">
+                {MODES.map((m) => (
+                  <Button
+                    key={m.key}
+                    type="button"
+                    size="sm"
+                    variant={m.key === mode ? "default" : "outline"}
+                    onClick={() => setMode(m.key)}
+                  >
+                    {m.label}
+                  </Button>
+                ))}
               </div>
-              <Slider
-                value={[hot]}
-                onValueChange={(v) => setHot(Array.isArray(v) ? v[0] : v)}
-                min={0}
-                max={100}
-                step={1}
-              />
+              <p className="text-xs leading-relaxed text-muted-foreground">
+                {active.blurb}
+              </p>
+              {score && baselineRow ? (
+                <div className="rounded-lg border border-border bg-card/50 p-3 text-xs leading-relaxed">
+                  <span className="text-muted-foreground">
+                    ทดสอบย้อนหลัง {backtest.trials} งวด (ชุดละ {backtest.count} เลข):
+                  </span>{" "}
+                  <b
+                    className={
+                      beatsChance ? "text-foreground" : "text-destructive"
+                    }
+                  >
+                    ถูก {(100 * score.rate).toFixed(2)}%
+                  </b>{" "}
+                  <span className="text-muted-foreground">
+                    — สุ่มเท่ากันทุกเลขได้ {(100 * baselineRow.rate).toFixed(2)}%
+                    (ตามทฤษฎี {(100 * backtest.baseline).toFixed(0)}%)
+                  </span>
+                </div>
+              ) : null}
             </div>
 
             <div className="flex flex-wrap items-center justify-between gap-3">

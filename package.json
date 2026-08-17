@@ -10,8 +10,11 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "seed": "tsx prisma/seed.ts",
+    "backfill:prizes": "tsx prisma/backfill-prizes.ts",
+    "reconcile:glo": "tsx prisma/reconcile-glo.ts",
     "db:push": "prisma db push",
-    "db:secure": "prisma db execute --schema prisma/schema.prisma --file prisma/sql/rls.sql",
+    "db:secure": "npm run db:lists && prisma db execute --schema prisma/schema.prisma --file prisma/sql/rls.sql",
+    "db:lists": "prisma db execute --schema prisma/schema.prisma --file prisma/sql/list-defaults.sql",
     "db:studio": "prisma studio"
   },
   "dependencies": {

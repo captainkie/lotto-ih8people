@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/prisma";
 import { scrapeDraw } from "@/lib/sanook";
+import { upsertDraw } from "@/lib/upsert-draw";
 
 type ActionResult = { ok: true; message: string } | { ok: false; error: string };
 
@@ -26,11 +27,9 @@ export async function saveDraw(formData: FormData): Promise<ActionResult> {
     return { ok: false, error: "เลขท้าย 2 ตัว ต้องมี 2 หลัก" };
   }
 
-  await prisma.draw.upsert({
-    where: { date: new Date(date + "T00:00:00Z") },
-    update: { firstPrize, last2, source: "manual" },
-    create: { date: new Date(date + "T00:00:00Z"), firstPrize, last2, source: "manual" },
-  });
+  // Manual entry covers only the headline numbers; any extra prize tiers already
+  // stored for this date are left untouched.
+  await upsertDraw(prisma, { date, firstPrize, last2, source: "manual" });
 
   revalidatePath("/");
   revalidatePath("/last2");
@@ -56,11 +55,7 @@ export async function scrapeAndSave(formData: FormData): Promise<ActionResult> {
     return { ok: false, error: "ไม่พบผลรางวัลของงวดนี้" };
   }
 
-  await prisma.draw.upsert({
-    where: { date: new Date(date + "T00:00:00Z") },
-    update: { firstPrize: draw.firstPrize, last2: draw.last2, source: "sanook" },
-    create: { date: new Date(date + "T00:00:00Z"), firstPrize: draw.firstPrize, last2: draw.last2, source: "sanook" },
-  });
+  await upsertDraw(prisma, { ...draw, source: "sanook" });
 
   revalidatePath("/");
   revalidatePath("/last2");

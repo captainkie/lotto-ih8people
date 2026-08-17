@@ -11,13 +11,27 @@ datasource db {
 }
 
 /// One lottery draw. Thai lottery draws on the 1st and 16th of each month.
-/// We store only what the app needs, tracked separately:
-///   firstPrize = รางวัลที่ 1 (6 digits), last2 = เลขท้าย 2 ตัว (2 digits).
+/// Every prize number is a STRING — leading zeros are significant ("007", "00").
+///
+/// `firstPrize` and `last2` are the headline numbers and are always present.
+/// The list fields carry the rest of the draw and exist to raise statistical power:
+/// one draw contributes 1 last-2 value but 19 six-digit-equivalent numbers, so the
+/// digit-level sample grows ~100x. They are empty for rows backfilled from the CSV
+/// history (which only carried the two headline numbers) — always length-check
+/// before using them.
 model Draw {
   id         Int      @id @default(autoincrement())
   date       DateTime @unique @db.Date
   firstPrize String   @db.VarChar(6)
   last2      String   @db.VarChar(2)
+  /// รางวัลเลขหน้า 3 ตัว — 2 numbers, 3 digits each.
+  front3     String[] @db.VarChar(3)
+  /// รางวัลเลขท้าย 3 ตัว — 2 numbers, 3 digits each.
+  last3      String[] @db.VarChar(3)
+  /// รางวัลที่ 2 — 5 numbers, 6 digits each.
+  second     String[] @db.VarChar(6)
+  /// รางวัลที่ 3 — 10 numbers, 6 digits each.
+  third      String[] @db.VarChar(6)
   source     String   @default("sanook") @db.VarChar(24)
   createdAt  DateTime @default(now())
   updatedAt  DateTime @default(now()) @updatedAt

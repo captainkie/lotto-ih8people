@@ -1,6 +1,8 @@
 import { Sparkles } from "lucide-react";
 import { getAllDraws } from "@/lib/draws";
 import {
+  backtestLast2,
+  fitConcentration,
   last2Frequency,
   overdueLast2,
   suggestFirstPrize,
@@ -12,6 +14,7 @@ import { StatCard } from "@/components/stat-card";
 import { NumberGenerator } from "@/components/number-generator";
 import { LineChart } from "@/components/charts/line-chart";
 import { Last2Section } from "@/components/sections/last2-section";
+import { RandomnessSection } from "@/components/sections/randomness-section";
 import { FirstPrizeSection } from "@/components/sections/first-prize-section";
 import { HistorySection } from "@/components/sections/history-section";
 import { Separator } from "@/components/ui/separator";
@@ -24,6 +27,25 @@ import {
 } from "@/components/ui/card";
 
 export const dynamic = "force-dynamic";
+
+/** A labelled row of equal-width prize numbers (used for the 3-digit tiers). */
+function PrizeGroup({ label, values }: { label: string; values: string[] }) {
+  return (
+    <div>
+      <div className="mb-2 text-xs text-muted-foreground">{label}</div>
+      <div className="flex flex-wrap gap-2">
+        {values.map((v) => (
+          <span
+            key={v}
+            className="tnum rounded-xl border border-primary/30 bg-primary/10 px-4 py-2 text-2xl font-bold tracking-wider tabular-nums text-primary"
+          >
+            {v}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 /** Next canonical draw date (1st / 16th) after the latest one. */
 function nextDrawDate(latestIso: string | null): string | null {
@@ -46,11 +68,14 @@ export default async function Home() {
   const freq = last2Frequency(draws);
   const hottest = [...freq].sort((a, b) => b.count - a.count)[0];
   const mostOverdue = overdueLast2(draws)[0];
+  const fit = fitConcentration(freq.map((f) => f.count));
+  // Walk-forward scoreline for every strategy the generator offers (server-side; deterministic).
+  const backtest = backtestLast2(draws, { count: 6 });
 
   // Deterministic, stats-weighted recommendation (stable per data update).
   const seed = total;
-  const sugFirst = suggestFirstPrize(draws, { hotVsOverdue: 0.5, seed }).split("");
-  const sugLast2 = suggestLast2(draws, { count: 6, hotVsOverdue: 0.5, seed });
+  const sugFirst = suggestFirstPrize(draws, { seed }).split("");
+  const sugLast2 = suggestLast2(draws, { count: 6, seed });
 
   const recent = draws.slice(0, 60).reverse();
 
@@ -85,6 +110,19 @@ export default async function Home() {
                   <NumberBall value={latest.last2} size="xl" highlight />
                 </div>
               </div>
+
+              {/* 3-digit tiers. Absent for draws before the 1 Sep 2015 restructure
+                  (เลขหน้า 3 ตัว did not exist), so each block renders only when present. */}
+              {latest.front3.length > 0 || latest.last3.length > 0 ? (
+                <div className="mt-6 grid gap-6 border-t border-border/60 pt-5 sm:grid-cols-2">
+                  {latest.front3.length > 0 ? (
+                    <PrizeGroup label="เลขหน้า 3 ตัว" values={latest.front3} />
+                  ) : null}
+                  {latest.last3.length > 0 ? (
+                    <PrizeGroup label="เลขท้าย 3 ตัว" values={latest.last3} />
+                  ) : null}
+                </div>
+              ) : null}
             </>
           ) : (
             <div className="text-muted-foreground">
@@ -104,7 +142,8 @@ export default async function Home() {
               ) : null}
             </CardTitle>
             <CardDescription>
-              คำนวณจากความถี่ + เลขไม่ออกนาน (ถ่วงน้ำหนักตามหลักความน่าจะเป็น)
+              สุ่มจาก posterior แบบ Bayesian ที่ปรับความเชื่อตามหลักฐานในข้อมูลเอง
+              (α₀ {fit.uniform ? "= ∞ → เท่ากันทุกเลข" : `= ${Math.round(fit.alpha0).toLocaleString()}`})
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-5">
@@ -134,7 +173,7 @@ export default async function Home() {
         </Card>
 
         {/* Interactive lucky-number generator (1st prize + last-2) */}
-        <NumberGenerator draws={draws} />
+        <NumberGenerator draws={draws} backtest={backtest} />
 
         {/* Quick stats */}
         <div className="grid gap-4 sm:grid-cols-3">
@@ -171,6 +210,8 @@ export default async function Home() {
 
       <Separator />
       <Last2Section draws={draws} />
+      <Separator />
+      <RandomnessSection draws={draws} />
       <Separator />
       <FirstPrizeSection draws={draws} />
       <Separator />

@@ -36,7 +36,12 @@ export function HistoryTable({ draws }: { draws: Draw[] }) {
     return draws.filter((d) => {
       const matchYear =
         year === "all" || getBuddhistYear(d.date) === parseInt(year, 10);
-      const matchQuery = !q || d.last2.includes(q) || d.firstPrize.includes(q);
+      const matchQuery =
+        !q ||
+        d.last2.includes(q) ||
+        d.firstPrize.includes(q) ||
+        d.front3.some((n) => n.includes(q)) ||
+        d.last3.some((n) => n.includes(q));
       return matchYear && matchQuery;
     });
   }, [draws, query, year]);
@@ -86,6 +91,8 @@ export function HistoryTable({ draws }: { draws: Draw[] }) {
             <TableRow>
               <TableHead>งวด</TableHead>
               <TableHead>รางวัลที่ 1</TableHead>
+              <TableHead>เลขหน้า 3 ตัว</TableHead>
+              <TableHead>เลขท้าย 3 ตัว</TableHead>
               <TableHead>เลขท้าย 2 ตัว</TableHead>
             </TableRow>
           </TableHeader>
@@ -93,7 +100,7 @@ export function HistoryTable({ draws }: { draws: Draw[] }) {
             {pageItems.length === 0 ? (
               <TableRow>
                 <TableCell
-                  colSpan={3}
+                  colSpan={5}
                   className="text-center text-muted-foreground"
                 >
                   ไม่พบข้อมูล
@@ -107,6 +114,13 @@ export function HistoryTable({ draws }: { draws: Draw[] }) {
                   </TableCell>
                   <TableCell className="tnum font-bold tracking-widest">
                     {d.firstPrize}
+                  </TableCell>
+                  {/* Empty for older draws — see the 1 Sep 2015 restructure. */}
+                  <TableCell className="tnum whitespace-nowrap text-muted-foreground">
+                    {d.front3.join("  ") || "–"}
+                  </TableCell>
+                  <TableCell className="tnum whitespace-nowrap text-muted-foreground">
+                    {d.last3.join("  ") || "–"}
                   </TableCell>
                   <TableCell>
                     <NumberBall value={d.last2} size="sm" highlight />

@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/prisma";
 import { scrapeDraw } from "@/lib/sanook";
+import { fetchGloArchive, fetchGloLatest } from "@/lib/glo";
+import { upsertDraw } from "@/lib/upsert-draw";
 
 export const dynamic = "force-dynamic";
 
@@ -55,32 +57,59 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ ok: false, error: "Unauthorized" }, { status: 401 });
   }
 
-  const now = new Date();
-  const latest = lastCanonicalDate(now);
-  const prev = prevCanonicalDate(latest);
+  const updated: { date: string; firstPrize: string; last2: string; source: string }[] = [];
+  const record = (d: { date: string; firstPrize: string; last2: string }, source: string) =>
+    updated.push({ ...d, source });
 
-  const datesToTry = [latest, prev];
-  const updated: { date: string; firstPrize: string; last2: string }[] = [];
+  // 1. GLO first. It is the official record, reports the draw's OWN date, and is the
+  //    only source that carries every tier. Deriving the date from the calendar is not
+  //    safe: draws shift around holidays and the May 2020 draws were cancelled, and
+  //    Sanook will happily answer for a date that never had a draw.
+  try {
+    const latestGlo = await fetchGloLatest();
+    if (latestGlo) {
+      await upsertDraw(prisma, latestGlo);
+      record(latestGlo, "glo");
+    }
+  } catch {
+    // fall through to the archive / Sanook paths
+  }
 
-  for (const date of datesToTry) {
-    try {
-      const draw = await scrapeDraw(date);
-      if (!draw) continue;
+  // 2. Self-heal: upsert any of GLO's recent draws we are missing. Covers a cron run
+  //    that was skipped or failed. The archive omits รางวัลที่ 2/3, and `upsertDraw`
+  //    never clears a populated tier, so this cannot downgrade a complete row.
+  try {
+    const recent = await fetchGloArchive({ maxPages: 1, delayMs: 0 });
+    const known = new Set(
+      (
+        await prisma.draw.findMany({
+          where: { date: { gte: new Date(recent[0]?.date ?? "1970-01-01") } },
+          select: { date: true },
+        })
+      ).map((r) => r.date.toISOString().slice(0, 10))
+    );
+    for (const draw of recent) {
+      if (known.has(draw.date)) continue;
+      await upsertDraw(prisma, { ...draw, source: "glo" });
+      record(draw, "glo-archive");
+    }
+  } catch {
+    // fall through
+  }
 
-      await prisma.draw.upsert({
-        where: { date: new Date(date + "T00:00:00Z") },
-        update: { firstPrize: draw.firstPrize, last2: draw.last2, source: "sanook" },
-        create: {
-          date: new Date(date + "T00:00:00Z"),
-          firstPrize: draw.firstPrize,
-          last2: draw.last2,
-          source: "sanook",
-        },
-      });
-
-      updated.push({ date, firstPrize: draw.firstPrize, last2: draw.last2 });
-    } catch {
-      // continue on error
+  // 3. Sanook fallback, used only when GLO gave us nothing at all. `scrapeDraw`
+  //    verifies the page's own heading against the requested date before returning.
+  if (updated.length === 0) {
+    const latest = lastCanonicalDate(new Date());
+    for (const date of [latest, prevCanonicalDate(latest)]) {
+      try {
+        const draw = await scrapeDraw(date);
+        if (!draw) continue;
+        await upsertDraw(prisma, { ...draw, source: "sanook" });
+        record(draw, "sanook");
+      } catch {
+        // continue on error
+      }
     }
   }
 

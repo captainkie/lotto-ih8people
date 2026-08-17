@@ -33,9 +33,26 @@ function parseCsvLine(line: string): string[] {
 }
 
 /**
+ * Read a Python-repr list cell such as `"['290', '742']"` into 3-digit strings.
+ * Anything that is not exactly 3 digits is dropped, and an empty/absent cell
+ * (`[]`, `""`) yields `[]`.
+ */
+function parseDigitListCell(cell: string | undefined, digits: number): string[] {
+  if (!cell) return [];
+  const quoted = cell.match(/['"]\s*([0-9]+)\s*['"]/g) ?? [];
+  return quoted
+    .map((q) => q.replace(/['"\s]/g, ""))
+    .filter((n) => n.length === digits);
+}
+
+/**
  * Parse lottery history CSV text into DrawInput records.
  * Required columns: date (YYYY-MM-DD), prize_1st (->firstPrize, padded to 6),
  * prize_2digits (->last2, padded to 2). Rows failing validation are skipped.
+ *
+ * Optional columns `prize_pre_3digit` / `prize_sub_3digits` map to `front3` / `last3`
+ * when present; their tier sizes vary by era (see `ExtraPrizes`), so they are read as
+ * variable-length lists rather than validated against a fixed count.
  */
 export function parseHistoryCsv(csvText: string): DrawInput[] {
   const lines = csvText.split(/\r?\n/).filter((l) => l.trim() !== "");
@@ -45,6 +62,8 @@ export function parseHistoryCsv(csvText: string): DrawInput[] {
   const dateIdx = headers.indexOf("date");
   const prize1stIdx = headers.indexOf("prize_1st");
   const prize2digitsIdx = headers.indexOf("prize_2digits");
+  const front3Idx = headers.indexOf("prize_pre_3digit");
+  const last3Idx = headers.indexOf("prize_sub_3digits");
 
   if (dateIdx === -1 || prize1stIdx === -1 || prize2digitsIdx === -1) return [];
 
@@ -70,7 +89,14 @@ export function parseHistoryCsv(csvText: string): DrawInput[] {
     const last2 = rawLast2.padStart(2, "0");
     if (!/^[0-9]{2}$/.test(last2)) continue;
 
-    results.push({ date, firstPrize, last2, source: "csv" });
+    results.push({
+      date,
+      firstPrize,
+      last2,
+      front3: front3Idx === -1 ? [] : parseDigitListCell(fields[front3Idx], 3),
+      last3: last3Idx === -1 ? [] : parseDigitListCell(fields[last3Idx], 3),
+      source: "csv",
+    });
   }
 
   return results;

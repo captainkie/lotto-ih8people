@@ -7,6 +7,7 @@ import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { scrapeDraw } from "../src/lib/sanook";
+import { upsertDraw } from "../src/lib/upsert-draw";
 import type { DrawInput } from "../src/lib/types";
 
 const prisma = new PrismaClient();
@@ -28,19 +29,7 @@ function enumerateDrawDates(fromIso: string, toIso: string): string[] {
   return out;
 }
 
-async function upsert(d: DrawInput) {
-  const date = new Date(d.date + "T00:00:00Z");
-  await prisma.draw.upsert({
-    where: { date },
-    create: {
-      date,
-      firstPrize: d.firstPrize,
-      last2: d.last2,
-      source: d.source ?? "csv",
-    },
-    update: { firstPrize: d.firstPrize, last2: d.last2 },
-  });
-}
+const upsert = (d: DrawInput) => upsertDraw(prisma, { ...d, source: d.source ?? "csv" });
 
 async function main() {
   const history: DrawInput[] = JSON.parse(
