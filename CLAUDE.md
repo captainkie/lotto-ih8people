@@ -17,7 +17,7 @@ Thai. For entertainment/education only; the app never claims predictive power.
 
 ```bash
 npm run dev          # dev server (Next.js)
-npm run build        # production build
+npm run build        # prisma generate + next build (see below — the generate step is load-bearing)
 npm run lint         # eslint (next core-web-vitals + typescript)
 npm test             # vitest run (all src/**/*.test.ts)
 npm run test:watch   # vitest watch
@@ -31,6 +31,12 @@ npm run backfill:prizes -- --limit 5 --delay 2000   # small, polite batch (resum
 npm run reconcile:glo                               # audit dates/numbers against the GLO record (dry run)
 npm run reconcile:glo -- --apply                    # write the corrections
 ```
+
+`build` must keep the `prisma generate` prefix. Vercel restores a warm `node_modules`, so npm
+reports "up to date" and never re-runs Prisma's postinstall — the generated client then still
+matches the *previous* schema. Any build after a schema change fails there (`'second' does not
+exist in type 'DrawWhereInput'`) even though it passes locally, because a local `db:push` has
+already regenerated the client as a side effect.
 
 There is **no separate typecheck script** — `next build` and `npx tsc --noEmit` cover types. Tests
 run in a `node` environment (no jsdom); the stats core and ingest utilities are pure functions.
