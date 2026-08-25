@@ -217,8 +217,10 @@ npm run dev
   + `ALTER DEFAULT PRIVILEGES` ให้ตารางใหม่สืบทอด
   (Prisma ต่อเป็น owner จึง bypass RLS — อย่าใส่ `FORCE ROW LEVEL SECURITY`)
 - **`/admin`:** รหัสผ่านร่วมตัวเดียว เทียบแบบ **constant-time** (hash ก่อนแล้ว `timingSafeEqual`),
-  **ล็อก 15 นาทีหลังเดาผิด 8 ครั้งต่อ IP**, และ **fail closed** เมื่อไม่ได้ตั้ง `ADMIN_PASSWORD`
-  — ดู [`src/lib/admin-auth.ts`](src/lib/admin-auth.ts)
+  **ล็อกสองชั้น** — 8 ครั้งต่อ client และเพดานรวม 40 ครั้ง ตรวจก่อนเทียบรหัสเสมอ —
+  key มาจาก `x-forwarded-for` **ตัวขวาสุด** (ตัวซ้ายสุดคือสิ่งที่ client เขียนมาเอง
+  ใช้เป็น key เมื่อไหร่ก็เดินผ่านการล็อกได้ทันที) และ **fail closed** เมื่อไม่ได้ตั้ง `ADMIN_PASSWORD`
+  — ดู [`src/lib/admin-auth.ts`](src/lib/admin-auth.ts) และเทสต์ใน `admin-auth.test.ts`
 - **`/api/cron`:** ต้องมี `Authorization: Bearer $CRON_SECRET` — header `x-vercel-cron`
   เพียงอย่างเดียวถือว่าปลอมได้
 - **Security headers ทุก route** ([`next.config.ts`](next.config.ts)): HSTS, `nosniff`,
