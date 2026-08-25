@@ -1,0 +1,100 @@
+# นโยบายความปลอดภัย (Security Policy)
+
+เว็บนี้ **ไม่มีบัญชีผู้ใช้ ไม่มีคุกกี้ ไม่เก็บข้อมูลส่วนบุคคล และไม่มี analytics ใด ๆ** —
+ไม่มี `localStorage`, ไม่มี tracker, ไม่มีฟอร์มที่รับข้อมูลจากผู้เข้าชม
+สิ่งเดียวที่ฐานข้อมูลเก็บคือ **ผลรางวัลสลากกินแบ่งรัฐบาลซึ่งเป็นข้อมูลสาธารณะอยู่แล้ว**
+
+blast radius จึงเล็ก แต่ไม่ใช่ศูนย์ — ของที่ต้องปกป้องจริง ๆ คือ **ความถูกต้องของข้อมูล**
+(ถ้าใครเขียนเลขมั่วเข้า DB ได้ เว็บก็โกหกคนอ่านทันที) และ **credential ของ Supabase**
+
+## แจ้งช่องโหว่
+
+ใช้ [private vulnerability reporting ของ GitHub](https://github.com/captainkie/lotto-ih8people/security/advisories/new)
+เป็นช่องทางแรก — มันเปิด draft advisory ที่เห็นกันแค่คุณกับ maintainer
+ทำให้เรื่องที่ยังไม่ได้แก้ไม่กลายเป็นสาธารณะก่อนที่ fix จะออก
+
+ถ้าใช้ช่องทางนั้นไม่ได้ ส่งอีเมลมาที่ **security@fosivo.com** แทน
+**อย่าเปิด public issue** สำหรับสิ่งที่สงสัยว่าเป็นช่องโหว่ — นั่นคือการเปิดเผย ไม่ใช่การรายงาน
+
+เรารับเรื่องภายใน **3 วันทำการ** และจะตอบกลับพร้อม *กรอบเวลา* ของการแก้ ไม่ใช่แค่ตัวแก้
+ภายใน **10 วันทำการ** ถ้ารายงานนั้นใช้ได้จริง เราจะให้เครดิตคุณใน advisory เว้นแต่คุณขอไม่ให้ใส่
+
+## เวอร์ชันที่ดูแล
+
+โปรเจกต์นี้ deploy จาก `main` ตรง ๆ ไม่มี release tag — **`main` คือเวอร์ชันเดียวที่ดูแล**
+ถ้าคุณ fork ไปแล้วรันเอง คุณต้อง merge fix เอง
+
+## สิ่งที่ป้องกันไว้แล้ว
+
+**ฐานข้อมูล — ปิด PostgREST ทิ้ง.** Supabase เปิดทุกตารางใน schema `public` ผ่าน PostgREST
+และให้สิทธิ์ `anon` (publishable key) อ่าน/เขียนได้เต็มโดยปริยาย โปรเจกต์นี้ไม่ได้ใช้ supabase-js
+เลยแม้แต่ที่เดียว จึงปิดประตูนั้นทิ้งใน [`prisma/sql/rls.sql`](prisma/sql/rls.sql):
+เปิด RLS บน `Draw` โดย **ไม่มี policy สักอัน** + `REVOKE ALL` จาก `anon`/`authenticated`
++ `ALTER DEFAULT PRIVILEGES` เพื่อให้ตารางที่สร้างทีหลังสืบทอดค่าเดียวกัน
+Prisma ต่อเข้ามาในฐานะ owner จึง bypass RLS ตามปกติ — **อย่าใส่ `FORCE ROW LEVEL SECURITY`**
+Prisma เขียน RLS ไม่ได้ ดังนั้นต้องรัน `npm run db:secure` ใหม่ทุกครั้งหลัง `db:push` ที่เพิ่มตาราง
+
+**`/admin` — จำกัดจำนวนครั้งที่เดารหัสได้.** `/admin` ใช้รหัสผ่านร่วมตัวเดียว ไม่มี session
+สิ่งเดียวที่กั้นคนเดารหัสออกจากสิทธิ์เขียน DB คือ *จำนวนครั้งที่เดาได้*
+[`src/lib/admin-auth.ts`](src/lib/admin-auth.ts) จึงทำสามอย่าง:
+
+- **เทียบแบบ constant-time** — hash ทั้งสองฝั่งด้วย SHA-256 ก่อนแล้วค่อย `timingSafeEqual`
+  การ hash ก่อนคือสิ่งที่ทำให้ปลอดภัยกับ input อะไรก็ได้: `timingSafeEqual` throw เมื่อความยาวไม่เท่ากัน
+  การเทียบ string ดิบ ๆ จะทำให้ *ความยาว* ของรหัสจริงรั่วออกไปทาง exception นั้น
+  digest ยาว 32 ไบต์เสมอ การเดาผิดทุกแบบจึงมีต้นทุนเท่ากันเป๊ะ
+- **ล็อกเอาต์** — ผิดครบ 8 ครั้งต่อ IP ล็อก 15 นาที และการผิดทุกครั้งเลื่อนหน้าต่างออกไปอีก
+  การหยอดช้า ๆ จึงไม่ทำให้ตัวนับรีเซ็ต
+- **fail closed** — ถ้าไม่ได้ตั้ง `ADMIN_PASSWORD` แปลว่า *ไม่มี* รหัสที่ถูก ทุก request ถูกปฏิเสธ
+  ไม่ใช่ทุก request ผ่าน
+
+**`/api/cron` — ต้องมี bearer secret.** ต้องส่ง `Authorization: Bearer $CRON_SECRET`
+header `x-vercel-cron` **เพียงอย่างเดียวไม่พอ** เพราะปลอมได้ ใครก็ยิงมาพร้อม header นั้นได้
+
+**Security headers ทุก route** (ดู [`next.config.ts`](next.config.ts)):
+`Strict-Transport-Security`, `X-Content-Type-Options: nosniff`,
+`Referrer-Policy: strict-origin-when-cross-origin`,
+`Content-Security-Policy: frame-ancestors 'none'` + `X-Frame-Options: DENY` และ `Permissions-Policy`
+ส่วน `/admin` ได้ `X-Robots-Tag: noindex, nofollow` เพิ่ม (และ `robots` ใน metadata ของหน้า)
+
+**ไม่มี raw SQL เลย** — ทุก query ผ่าน Prisma ซึ่ง parameterize ให้ ไม่มี `$queryRaw`/`$executeRaw`
+ในโค้ดฐาน
+
+**ข้อมูลที่แสดงไม่เคยมาจาก third-party ตอน request** — `src/lib/draws.ts` ถูก mark `server-only`
+และอ่านจาก DB ของเราเท่านั้น การดึงจากภายนอกเกิดเฉพาะใน write path (cron / admin / seed)
+
+**Secrets** — `.env*` ถูก gitignore ทั้งหมดยกเว้น `.env.example` ก่อนเปิด repo เป็น public
+เราไล่ค่าจริงทุกตัวใน `.env` (รหัส DB, Supabase project ref, `ADMIN_PASSWORD`, `CRON_SECRET`)
+ผ่านทุก blob ในทุก commit ของประวัติ git — **ไม่เจอสักตัว** และ `.env` ไม่เคยถูก commit เลย
+
+## สิ่งที่ยัง *ไม่* ป้องกัน — รู้ไว้ก่อนจะไปเจอเอง
+
+**ตัวนับล็อกเอาต์อยู่ใน memory และแยกตาม process.** บน Vercel แต่ละ instance ถือ map ของตัวเอง
+รัน 3 instance เพดานก็คูณสาม และ cold start ลืมทุกอย่างที่นับไว้
+มันคือเบรกสำหรับสคริปต์ที่ยิงรัว ๆ ที่ endpoint เดียว **ไม่ใช่ lockout แบบกระจาย**
+การทำให้จริงต้องมี shared store (แถวใน Postgres หรือ Redis) — คุ้มจะทำวันที่รหัสนี้ปกป้องอะไรที่น่าสนใจ
+กว่าตารางผลหวย
+
+**`/admin` เป็นรหัสผ่านร่วมตัวเดียว ไม่มี session ไม่มี 2FA ไม่มี audit log.**
+รหัสถูกส่งไปกับ server action ทุกครั้งที่กดบันทึก (ผ่าน HTTPS) ไม่มีบันทึกว่าใครแก้อะไรเมื่อไหร่
+ถ้ามีคนใช้ร่วมกันมากกว่าหนึ่งคน ควรเปลี่ยนไปใช้ auth จริง
+
+**ไม่มี CSP เต็มรูปแบบ (`script-src`).** Next ฝัง inline bootstrap script ลงในเอกสาร
+การทำ `script-src` จริงต้องส่ง nonce ต่อ request ผ่านเข้าไปในเอกสาร ซึ่งใหญ่กว่าที่เว็บนี้ต้องการ
+`frame-ancestors` เป็น directive เดียวที่มีประโยชน์ในตัวเอง — directive ที่ไม่ได้ส่งจะไม่ถูกบังคับใช้
+policy บางส่วนจึงถือว่าถูกต้อง ไม่ใช่พังครึ่งเดียว
+
+**ข้อมูลจาก sanook เชื่อได้ไม่เต็มร้อย.** หน้าเว็บ sanook ตอบทุกวันที่ที่ใส่ใน URL —
+วันที่ไม่มีงวดมันมักแสดงเลขของ *งวดล่าสุด* แทนที่จะ error `scrapeDraw` จึงปฏิเสธหน้าที่หัวข้อของมันเอง
+ไม่ตรงกับวันที่ขอ แต่ guard นั้น **จำเป็นแต่ไม่พอ**: หน้าของวันที่ 2020-05-16 อ้างวันที่ถูกแต่แสดงเลข
+ของ 2020-04-01 มีแต่ GLO ที่จับ error ระดับนั้นได้ ซึ่งคือเหตุผลที่มี `npm run reconcile:glo`
+
+**ไม่มี rate limit บนหน้าสาธารณะ** — ปล่อยให้เป็นหน้าที่ของ Vercel ทั้งหมด
+
+## ขอบเขต
+
+**อยู่ในขอบเขต:** โค้ดใน repo นี้ — auth ของ `/admin` และ `/api/cron`, ตัว parser ของ ingest,
+การตั้งค่า RLS/grant, security headers, การจัดการ secret
+
+**ไม่อยู่ในขอบเขต:** ช่องโหว่ของ Vercel, Supabase, Next.js หรือ dependency ต้นน้ำ
+(รายงานไปที่เจ้าของนั้นโดยตรง), การที่ sanook.com หรือ GLO ให้ข้อมูลผิด,
+และรายงานจากสแกนเนอร์ที่ไม่ได้แสดงว่ามีผลกระทบจริง

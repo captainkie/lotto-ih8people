@@ -3,6 +3,8 @@ import { AdminForm } from "./admin-form";
 
 export const metadata: Metadata = {
   title: "จัดการข้อมูล (Admin)",
+  // The page is password-gated, not secret — but it has no business in an index.
+  robots: { index: false, follow: false },
 };
 
 export default function AdminPage() {
