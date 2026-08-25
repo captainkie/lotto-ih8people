@@ -1,29 +1,138 @@
-# Lotto Stats — `lotto.ih8people.xyz`
+# Lotto Stats
 
-เว็บ **วิเคราะห์สถิติหวยไทย** (รางวัลที่ 1 และเลขท้าย 2 ตัว) ด้วยหลักความน่าจะเป็น
-เก็บผลย้อนหลังทุกงวดในฐานข้อมูลของเราเอง และอัพเดตอัตโนมัติทุกวันที่ 1 และ 16
+**เว็บไซต์:** <https://lotto.ih8people.xyz>
 
-> ⚠️ เพื่อการศึกษา/ความบันเทิงเท่านั้น — การออกรางวัลเป็นเหตุการณ์สุ่มอิสระ
+เว็บ **วิเคราะห์สถิติหวยไทย** ด้วยหลักความน่าจะเป็น — รางวัลที่ 1 (6 หลัก), เลขท้าย 2 ตัว,
+เลขหน้า 3 ตัว และเลขท้าย 3 ตัว เก็บผลย้อนหลังทุกงวดในฐานข้อมูลของเราเอง
+และอัพเดตอัตโนมัติทุกวันที่ 1 และ 16
+
+> ⚠️ **เพื่อการศึกษา/ความบันเทิงเท่านั้น** — การออกรางวัลเป็นเหตุการณ์สุ่มอิสระ
 > ผลในอดีตไม่สามารถทำนายผลในอนาคตได้ ทุกเลขมีโอกาสออกเท่ากันทุกงวด
+> เว็บนี้ตั้งใจ **พิสูจน์** ข้อความนั้นด้วยตัวเลข ไม่ใช่ขายสูตรเลขเด็ด
+
+---
 
 ## Stack
 
 - **Next.js 16** (App Router) + TypeScript
 - **shadcn/ui** (Base UI) + Tailwind v4 — ธีม dark + gold/neon
 - **ApexCharts** — heatmap 00–99, ความถี่รายหลัก, timeline
-- **Supabase (Postgres) + Prisma** — ฐานข้อมูลของเราเอง (source of truth)
+- **Supabase (Postgres) + Prisma** — ฐานข้อมูลของเราเอง (single source of truth)
 - **Vercel** + Vercel Cron — deploy + อัพเดตอัตโนมัติ
+- **Vitest** — unit tests ของ stats core และ ingest
 
 ## ข้อมูล
 
-- **Backfill:** ชุดข้อมูลย้อนหลังจาก `heart/Data-Set-Thai-Lotto` (CSV) → `data/history.json`
-- **อัพเดตงวดใหม่:** scrape จาก `news.sanook.com` (ปี พ.ศ., anchor ที่คำว่า "บาท")
-- เก็บเฉพาะ `date`, `firstPrize` (6 หลัก), `last2` (2 หลัก) แยกกัน
+**หลักการ:** DB ของเราเองคือ source of truth เดียว — เวลา user เปิดเว็บ แอปอ่านจาก DB เท่านั้น
+ไม่เคยยิงไปหา third-party ตอน request การดึงข้อมูลจากภายนอกเกิดเฉพาะใน write path
+(cron / admin / seed)
 
-## การวิเคราะห์ (โปร่งใส)
+| แหล่ง | บทบาท | ครอบคลุม |
+|-------|-------|----------|
+| **GLO** (`src/lib/glo.ts`) | **แหล่งอ้างอิงหลัก** — JSON API ของสำนักงานสลากฯ | 2010-03-01 → ปัจจุบัน |
+| **sanook.com** (`src/lib/sanook.ts`) | scrape สำหรับปีที่ GLO ไม่ครอบคลุม | ก่อน 2010 + รางวัลย่อย |
+| `data/history.json` | backfill ชุดแรกจาก CSV เปิด `heart/Data-Set-Thai-Lotto` | 2006–2024 |
 
-ความถี่ · ไคสแควร์ (goodness-of-fit vs uniform) · เลขไม่ออกนาน (overdue) ·
-ถ่วงน้ำหนักตามช่วงเวลา (EWMA) · เครื่องปั่นเลขแบบสุ่มถ่วงน้ำหนัก
+ปัจจุบันเก็บ **468 งวด** (2006-12-30 → 2026-08-16) โดย 467 งวดมีรางวัลย่อยครบ
+
+**เก็บอะไรบ้างต่อหนึ่งงวด:** `date`, `firstPrize` (6 หลัก), `last2` (2 หลัก) และรางวัลย่อยแบบ
+list ความยาวไม่คงที่ — `front3`, `last3`, `second`, `third`
+(ขนาดรางวัลเปลี่ยนตั้งแต่งวด **1 ก.ย. 2558** — ก่อนหน้านั้นไม่มีเลขหน้า 3 ตัว และเลขท้าย 3 ตัวมี 4 รางวัล)
+
+รางวัลย่อยมีไว้เพื่อ **statistical power**: หนึ่งงวดให้ `last2` แค่ค่าเดียว (รวม ~470 ค่า กระจายบน 100 ช่อง —
+น้อยเกินกว่าจะจับ bias ของเครื่องออกรางวัลได้) แต่รางวัลย่อยเพิ่มอีก 19 เลขต่องวด ทำให้ sample
+ระดับหลักเพิ่มขึ้นราว 100 เท่า
+
+**หมายเหตุเรื่องวันที่:** วันออกรางวัลคือ *ข้อมูล* ไม่ใช่ *การคำนวณ* — ปกติวันที่ 1 และ 16
+แต่เลื่อนได้รอบวันหยุด (เช่น 2015-05-02, 2015-06-02) และงวดเดือน พ.ค. 2563 ถูกยกเลิกเพราะโควิด
+โค้ดที่ *เดา* วันที่จากปฏิทินจะสร้างงวดผีขึ้นมาเสมอ (CSV ต้นทางเคยมีงวดผี 2020-05-16
+และตกงวด 2011-03-01 — แก้จาก GLO แล้วด้วย `npm run reconcile:glo`)
+
+---
+
+## อัลกอริทึม
+
+โค้ดทั้งหมดอยู่ใน [`src/lib/stats.ts`](src/lib/stats.ts) — pure function ล้วน ไม่มี side effect
+ทุกฟังก์ชันคำนวณจาก input อย่างเดียว และมี unit test กำกับ
+
+### 1. สถิติเชิงบรรยาย
+
+- `last2Frequency` / `digitFrequencyByPosition` — ความถี่ต่อเลข และต่อหลัก
+- `chiSquareLast2` / `chiSquareDigits` — ไคสแควร์ goodness-of-fit เทียบ uniform (คำนวณ p-value ในตัว)
+- `overdueLast2` — เลขที่ไม่ออกนาน (gap)
+- `ewmaLast2` — ความถี่ถ่วงน้ำหนักตามเวลา (half-life 24 งวด)
+- `entropyLast2` — เอนโทรปีเทียบกับ null band ที่จำลองจากการสุ่มจริง
+- `gapHazardLast2` — อัตราการออกจริง แยกตามช่วง gap (ทดสอบตรง ๆ ว่า "ค้างนาน = ใกล้ออก" จริงไหม)
+
+### 2. การคาลิเบรตเครื่องปั่นเลข (ส่วนที่ปรับใหม่)
+
+ก่อนหน้านี้เครื่องปั่นเลขใช้สูตรกึ่งความเชื่อ — ถ่วงน้ำหนัก *เลขฮอต 50% + เลขค้าง 50%*
+ปัญหาคือมันสมมติไปเองว่ามี bias อยู่ ทั้งที่ยังไม่เคยตรวจว่าข้อมูลรองรับหรือเปล่า
+
+ตอนนี้เปลี่ยนเป็น **empirical-Bayes** ด้วย Dirichlet–multinomial แบบสมมาตร (`fitConcentration`):
+
+สำหรับ `X ~ DM(n, α₀)` บน `K` ช่องที่ควรมีโอกาสเท่ากัน จะได้
+`E[χ²] = df · (n + α₀) / (1 + α₀)` เมื่อ match moment กับ `ρ̂ = χ² / df` แล้วแก้สมการได้
+
+```
+α₀ = (n − ρ̂) / (ρ̂ − 1)
+```
+
+จากนั้น `posteriorPredictive` ให้ความน่าจะเป็นของแต่ละเลขเป็น
+
+```
+P(v) = (count_v + α₀/K) / (n + α₀)
+```
+
+- **`ρ̂ > 1`** — ข้อมูลกระจายตัวมากกว่าที่การสุ่มยุติธรรมอธิบายได้ → `α₀` มีค่าจำกัด
+  → posterior เอียงเข้าหาความถี่จริง **เท่าที่หลักฐานรองรับ ไม่เกินกว่านั้น**
+- **`ρ̂ ≤ 1`** — ข้อมูลไม่ได้กระจายเกินการสุ่มยุติธรรมเลย → `α₀ → ∞`
+  → posterior **ยุบเป็น uniform เป๊ะ ๆ**
+
+**ผลบนข้อมูลจริง:** `χ² = 89.26`, `df = 99`, `p = 0.75`, `ρ̂ ≈ 0.90` → `α₀ = ∞`
+เอนโทรปี `6.496 bits` จากเพดาน `6.644` (97.8%) อยู่ในกรอบ null `[6.434, 6.525]` พอดี
+
+แปลว่า **เครื่องปั่นเลขสุ่มแบบ uniform** ซึ่งถูกต้องแล้ว — และนั่นคือจุดประสงค์ทั้งหมดของการคาลิเบรต:
+ตัวประมาณค่าตัดสินใจเองจากข้อมูล ไม่ใช่จากความเชื่อของคนเขียน
+โหมด `"hot"` / `"overdue"` ยังเหลือไว้ให้ UI **แสดงว่าสูตรพวกนั้นทำคะแนนได้จริงแค่ไหน**
+
+### 3. Backtest — ตัวตัดสิน
+
+`backtestLast2` ทำ walk-forward: ณ งวดที่ `t` กลยุทธ์เห็นเฉพาะงวดที่เก่ากว่า `t` เท่านั้น
+เลือกมา 6 เลข แล้ววัดว่าเลขที่ออกจริงอยู่ในนั้นไหม (in-sample frequency จะเข้าข้างกลยุทธ์ที่ overfit เสมอ
+walk-forward เป็นวิธีเดียวที่ยุติธรรม)
+
+มี 2 โหมดการเลือก เพราะมันตอบคนละคำถาม:
+
+- **`selection: "sample"`** — สุ่มถ่วงน้ำหนักแบบไม่ซ้ำ = วิธีที่เครื่องปั่นเลขเล่นจริง
+- **`selection: "topk"`** — หยิบ N อันดับแรกตรง ๆ = วิธีที่คนเล่นตามลิสต์ "เลขฮอต"/"เลขค้างนาน"
+
+ผลจริง — 6 เลข/งวด, 348 งวดที่ให้คะแนน, baseline ตามโอกาส = **6.00%**:
+
+| กลยุทธ์ | `sample` | lift | `topk` | lift |
+|---------|---------:|-----:|-------:|-----:|
+| `posterior` (คาลิเบรต) | 6.18% | 1.03 | 6.15% | 1.02 |
+| `uniform` (สุ่มล้วน) | 6.12% | 1.02 | 6.09% | 1.02 |
+| `ewma` | 6.06% | 1.01 | 6.32% | 1.05 |
+| `hot` (เลขฮอต) | 5.89% | 0.98 | 5.95% | 0.99 |
+| `overdue` (เลขค้างนาน) | 5.72% | 0.95 | **5.00%** | **0.83** |
+| `legacy` (สูตรเดิม ฮอต 50% + ค้าง 50%) | 6.18% | 1.03 | **4.89%** | **0.81** |
+
+**ทุกช่องมี `p ≥ 0.44`** — ไม่มีกลยุทธ์ไหนต่างจากการสุ่มอย่างมีนัยสำคัญ ระยะห่างที่เห็นคือ noise ล้วน ๆ
+สังเกตว่าสูตรความเชื่อ (`hot`, `overdue`, `legacy`) เมื่อเล่นแบบที่คนเล่นจริง (`topk`)
+ทำได้ **ต่ำกว่า** การสุ่มมั่ว ๆ ด้วยซ้ำ
+
+การ tie-break ของ `topk` **สุ่ม** ซึ่งเป็นเรื่องจำเป็น: posterior ที่คาลิเบรตแล้วแบนสนิท
+ถ้า tie-break ตามลำดับ index มันจะเล่น `00`–`05` ทุกงวด
+
+### 4. Determinism
+
+sampler และ backtest ใช้ PRNG `mulberry32` ที่ seed ได้ (seed ปริยายของ sampler = `draws.length`)
+ทำให้ "เลขแนะนำ" บนหน้าแรกคงที่ทุก render จนกว่าจะมีข้อมูลใหม่เข้ามา —
+**ห้ามใส่ `Math.random()` ลงในโมดูลนี้** `backtestLast2` และ null band ของเอนโทรปีถูก memoize
+โดย key จาก hash ของ *เนื้อข้อมูล* (ความยาว + วันที่ล่าสุดไม่ unique พอ)
+
+---
 
 ## เริ่มพัฒนา
 
@@ -31,7 +140,8 @@
 cp .env.example .env      # ใส่ค่า Supabase + secrets
 npm install
 npm run db:push           # sync schema ขึ้น Supabase
-npm run seed              # backfill + gap-fill จาก sanook
+npm run db:secure         # ใส่ RLS + revoke grants + default ของ list column
+npm run seed              # backfill + gap-fill งวดล่าสุด
 npm run dev
 ```
 
@@ -39,16 +149,38 @@ npm run dev
 
 | คำสั่ง | หน้าที่ |
 |--------|--------|
-| `npm run dev` / `build` | dev / production build |
+| `npm run dev` / `build` | dev / production build (`build` ต้องคง `prisma generate` นำหน้าไว้) |
 | `npm test` | unit tests (stats + ingest) |
+| `npm run lint` | eslint |
 | `npm run db:push` | sync Prisma schema → Supabase |
-| `npm run seed` | เติมข้อมูลย้อนหลัง + งวดล่าสุด |
+| `npm run db:secure` | ใส่ RLS + revoke `anon`/`authenticated` + default ของ list column |
+| `npm run seed` | เติมข้อมูลย้อนหลัง + งวดล่าสุด (idempotent) |
+| `npm run backfill:prizes` | เติมรางวัลย่อยให้งวดที่ยังขาด (resumable, rate-limited) |
+| `npm run reconcile:glo` | ตรวจวันที่/เลขกับ GLO (dry run; `-- --apply` เพื่อเขียนจริง) |
 
 ## Environment variables
 
-ดู `.env.example` — `DATABASE_URL`, `DIRECT_URL` (Supabase), `ADMIN_PASSWORD`, `CRON_SECRET`
+ดู [`.env.example`](.env.example) — `DATABASE_URL`, `DIRECT_URL` (Supabase), `ADMIN_PASSWORD`, `CRON_SECRET`
+ไฟล์ `.env*` ทั้งหมดถูก gitignore ยกเว้น `.env.example`
+
+## Security
+
+- **RLS:** Supabase เปิดทุกตารางใน schema `public` ผ่าน PostgREST และให้สิทธิ์ `anon` เต็มโดยปริยาย
+  โปรเจกต์นี้ไม่ได้ใช้ supabase-js เลย จึงปิดประตูนั้นทิ้งใน [`prisma/sql/rls.sql`](prisma/sql/rls.sql):
+  เปิด RLS บน `Draw` โดย **ไม่มี policy** + `REVOKE ALL` จาก `anon`/`authenticated`
+  + `ALTER DEFAULT PRIVILEGES` ให้ตารางใหม่สืบทอด
+  (Prisma ต่อเป็น owner จึง bypass RLS — อย่าใส่ `FORCE ROW LEVEL SECURITY`)
+- **`/admin`** ป้องกันด้วย `ADMIN_PASSWORD` (server action)
+- **`/api/cron`** ต้องมี `Authorization: Bearer $CRON_SECRET` — header `x-vercel-cron` ถือว่าปลอมได้
 
 ## อัพเดตอัตโนมัติ
 
-`vercel.json` ตั้ง Cron ยิง `GET /api/cron` (ตรวจ `Authorization: Bearer $CRON_SECRET`)
-เวลา 11:00 UTC (18:00 น. ไทย) ทุกวันที่ 1 และ 16 → scrape งวดล่าสุด upsert เข้า DB
+`vercel.json` ตั้ง Cron ยิง `GET /api/cron` เวลา 11:00 UTC (18:00 น. ไทย) ทุกวันที่ 1 และ 16
+
+ลำดับการดึงข้อมูล: GLO `getLatestLottery` (รางวัลครบ + วันที่จาก GLO เอง)
+→ GLO archive หน้าแรก เพื่อ self-heal งวดที่หลุดไป → sanook ตามวันที่ canonical
+เฉพาะกรณี GLO ไม่คืนอะไรเลย ทุก write ผ่าน `upsertDraw` ซึ่ง **ไม่เคยเขียนทับรางวัลที่มีอยู่แล้วด้วยค่าว่าง**
+
+## License
+
+[MIT](LICENSE)
