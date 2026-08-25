@@ -4,14 +4,13 @@ import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/prisma";
 import { scrapeDraw } from "@/lib/sanook";
 import { upsertDraw } from "@/lib/upsert-draw";
+import { checkAdminPassword } from "@/lib/admin-auth";
 
 type ActionResult = { ok: true; message: string } | { ok: false; error: string };
 
 export async function saveDraw(formData: FormData): Promise<ActionResult> {
-  const password = formData.get("password") as string;
-  if (password !== process.env.ADMIN_PASSWORD) {
-    return { ok: false, error: "รหัสผ่านไม่ถูกต้อง" };
-  }
+  const denied = await checkAdminPassword(formData.get("password"));
+  if (denied) return denied;
 
   const date = (formData.get("date") as string).trim();
   const firstPrize = (formData.get("firstPrize") as string).trim();
@@ -40,10 +39,8 @@ export async function saveDraw(formData: FormData): Promise<ActionResult> {
 }
 
 export async function scrapeAndSave(formData: FormData): Promise<ActionResult> {
-  const password = formData.get("password") as string;
-  if (password !== process.env.ADMIN_PASSWORD) {
-    return { ok: false, error: "รหัสผ่านไม่ถูกต้อง" };
-  }
+  const denied = await checkAdminPassword(formData.get("password"));
+  if (denied) return denied;
 
   const date = (formData.get("date") as string).trim();
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {

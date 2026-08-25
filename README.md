@@ -1,10 +1,27 @@
-# Lotto Stats
+<h1 align="center">🎰 Lotto Stats</h1>
 
-**เว็บไซต์:** <https://lotto.ih8people.xyz>
+<p align="center">
+  <b>วิเคราะห์สถิติหวยไทยด้วยหลักความน่าจะเป็น — แล้วพิสูจน์ด้วยตัวเลขว่าไม่มีสูตรไหนเอาชนะการสุ่มได้</b><br/>
+  รางวัลที่ 1, เลขท้าย 2 ตัว, เลขหน้า/ท้าย 3 ตัว ย้อนหลังทุกงวดตั้งแต่ปี 2549 ในฐานข้อมูลของเราเอง
+  อัพเดตอัตโนมัติทุกวันที่ 1 และ 16 พร้อม<b>ใบรับรองความสุ่ม</b>ที่เดินการทดสอบย้อนหลังให้ดูว่า
+  “เลขฮอต” กับ “เลขค้างนาน” ทำคะแนนได้จริงเท่าไหร่
+</p>
 
-เว็บ **วิเคราะห์สถิติหวยไทย** ด้วยหลักความน่าจะเป็น — รางวัลที่ 1 (6 หลัก), เลขท้าย 2 ตัว,
-เลขหน้า 3 ตัว และเลขท้าย 3 ตัว เก็บผลย้อนหลังทุกงวดในฐานข้อมูลของเราเอง
-และอัพเดตอัตโนมัติทุกวันที่ 1 และ 16
+<p align="center">
+  <a href="https://lotto.ih8people.xyz"><img alt="เว็บไซต์" src="https://img.shields.io/badge/Live-lotto.ih8people.xyz-FFC300"></a>
+  <a href="./LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-blue.svg"></a>
+  <img alt="Next.js 16" src="https://img.shields.io/badge/Next.js-16-000000?logo=nextdotjs&logoColor=white">
+  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white">
+  <img alt="Postgres" src="https://img.shields.io/badge/Supabase-Postgres-3ECF8E?logo=supabase&logoColor=white">
+  <a href="./SECURITY.md"><img alt="Security policy" src="https://img.shields.io/badge/Security-policy-important"></a>
+  <a href="https://github.com/sponsors/captainkie"><img alt="Sponsor" src="https://img.shields.io/badge/Sponsor-%E2%9D%A4-ff69b4"></a>
+  <a href="https://buymeacoffee.com/captainkiez"><img alt="Buy Me a Coffee" src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?logo=buymeacoffee&logoColor=black"></a>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/home.png" width="880"
+       alt="หน้าแรก — ผลรางวัลงวดล่าสุดเป็นลูกบอลสีทอง พร้อมเลขแนะนำงวดถัดไปที่สุ่มจาก posterior แบบ Bayesian">
+</p>
 
 > ⚠️ **เพื่อการศึกษา/ความบันเทิงเท่านั้น** — การออกรางวัลเป็นเหตุการณ์สุ่มอิสระ
 > ผลในอดีตไม่สามารถทำนายผลในอนาคตได้ ทุกเลขมีโอกาสออกเท่ากันทุกงวด
@@ -134,6 +151,31 @@ sampler และ backtest ใช้ PRNG `mulberry32` ที่ seed ได้ 
 
 ---
 
+## หน้าตาเว็บ
+
+**เครื่องปั่นเลข บอกคะแนนของตัวเองมาด้วย.** ปุ่มสามโหมดคือสามความเชื่อ และใต้ปุ่มคือผลทดสอบย้อนหลัง
+ของโหมดที่เลือกอยู่จริง ๆ — ไม่ใช่คำโฆษณา ตัวเลข `6.18%` เทียบกับเส้นฐาน `6%` คือระยะห่างที่ noise
+อธิบายได้ทั้งหมด และเว็บก็เขียนไว้ตรง ๆ อย่างนั้น
+
+![เครื่องปั่นเลขนำโชค](docs/screenshots/generator.png)
+
+**ใบรับรองความสุ่ม — หัวใจของเว็บ.** ไคสแควร์ เอนโทรปี ค่าความเอียง `α₀` และตารางทดสอบย้อนหลัง
+ที่จัดอันดับทุกสูตรพร้อม p-value ในหน้าเดียว สังเกตว่าสูตรความเชื่อทั้งสามอยู่ *ท้าย* ตาราง
+ต่ำกว่าการสุ่มมั่ว ๆ
+
+![ใบรับรองความสุ่ม](docs/screenshots/randomness.png)
+
+**เลขท้าย 2 ตัว.** Heatmap 00–99, เลขฮอต, เลขไม่ออกนาน และผลไคสแควร์ที่ยืนยันว่าการกระจายตัว
+ไม่ต่างจากการสุ่มอย่างมีนัยสำคัญ
+
+![สถิติเลขท้าย 2 ตัว](docs/screenshots/last2.png)
+
+**รางวัลที่ 1.** ความถี่ของเลขแต่ละหลักแยกตามตำแหน่ง — ทดสอบแยกกันทีละหลัก
+
+![สถิติรางวัลที่ 1](docs/screenshots/first-prize.png)
+
+---
+
 ## เริ่มพัฒนา
 
 ```bash
@@ -165,13 +207,28 @@ npm run dev
 
 ## Security
 
+เว็บนี้ **ไม่มีบัญชีผู้ใช้ ไม่มีคุกกี้ ไม่เก็บข้อมูลส่วนบุคคล ไม่มี analytics** — สิ่งเดียวที่ DB เก็บคือ
+ผลรางวัลซึ่งเป็นข้อมูลสาธารณะอยู่แล้ว ของที่ต้องปกป้องจริง ๆ คือ **ความถูกต้องของข้อมูล**
+และ **credential ของ Supabase**
+
 - **RLS:** Supabase เปิดทุกตารางใน schema `public` ผ่าน PostgREST และให้สิทธิ์ `anon` เต็มโดยปริยาย
   โปรเจกต์นี้ไม่ได้ใช้ supabase-js เลย จึงปิดประตูนั้นทิ้งใน [`prisma/sql/rls.sql`](prisma/sql/rls.sql):
   เปิด RLS บน `Draw` โดย **ไม่มี policy** + `REVOKE ALL` จาก `anon`/`authenticated`
   + `ALTER DEFAULT PRIVILEGES` ให้ตารางใหม่สืบทอด
   (Prisma ต่อเป็น owner จึง bypass RLS — อย่าใส่ `FORCE ROW LEVEL SECURITY`)
-- **`/admin`** ป้องกันด้วย `ADMIN_PASSWORD` (server action)
-- **`/api/cron`** ต้องมี `Authorization: Bearer $CRON_SECRET` — header `x-vercel-cron` ถือว่าปลอมได้
+- **`/admin`:** รหัสผ่านร่วมตัวเดียว เทียบแบบ **constant-time** (hash ก่อนแล้ว `timingSafeEqual`),
+  **ล็อก 15 นาทีหลังเดาผิด 8 ครั้งต่อ IP**, และ **fail closed** เมื่อไม่ได้ตั้ง `ADMIN_PASSWORD`
+  — ดู [`src/lib/admin-auth.ts`](src/lib/admin-auth.ts)
+- **`/api/cron`:** ต้องมี `Authorization: Bearer $CRON_SECRET` — header `x-vercel-cron`
+  เพียงอย่างเดียวถือว่าปลอมได้
+- **Security headers ทุก route** ([`next.config.ts`](next.config.ts)): HSTS, `nosniff`,
+  `Referrer-Policy`, `frame-ancestors 'none'` + `X-Frame-Options: DENY`, `Permissions-Policy`
+  และ `X-Robots-Tag: noindex` เฉพาะ `/admin`
+- **ไม่มี raw SQL** — ทุก query ผ่าน Prisma ไม่มี `$queryRaw`/`$executeRaw` ในโค้ดฐาน
+
+ข้อจำกัดที่รู้อยู่ (ตัวนับล็อกเอาต์อยู่ใน memory แยกตาม process, ไม่มี CSP เต็มรูปแบบ,
+sanook เชื่อได้ไม่เต็มร้อย) เขียนไว้ครบพร้อมเหตุผลใน **[SECURITY.md](SECURITY.md)**
+พร้อมวิธีแจ้งช่องโหว่ — ใช้ private vulnerability reporting ของ GitHub อย่าเปิด public issue
 
 ## อัพเดตอัตโนมัติ
 
@@ -181,6 +238,36 @@ npm run dev
 → GLO archive หน้าแรก เพื่อ self-heal งวดที่หลุดไป → sanook ตามวันที่ canonical
 เฉพาะกรณี GLO ไม่คืนอะไรเลย ทุก write ผ่าน `upsertDraw` ซึ่ง **ไม่เคยเขียนทับรางวัลที่มีอยู่แล้วด้วยค่าว่าง**
 
+## ผู้พัฒนา
+
+โปรเจกต์ของ **[Fosivo Labs Co., Ltd.](https://fosivo.com)** พัฒนาโดย
+**Narenrit Hadsadintorn** ([@captainkie](https://github.com/captainkie)) ร่วมกับ
+**[Claude](https://claude.com/claude-code)** (Anthropic) ในฐานะ AI pair-builder
+
+ชื่อที่สองไม่ใช่ของประดับ และถูก *บันทึกไว้* ไม่ใช่แค่พูดถึง — ทุก commit ที่ Claude ลงมือ
+มี trailer `Co-Authored-By` ติดอยู่ `git log` จึงบอกได้ว่าใครเขียนอะไรโดยไม่ต้องอาศัยความทรงจำใคร
+
+ส่วนที่เถียงกันหนักที่สุดคือ**การคาลิเบรต** — เดิมเครื่องปั่นเลขใช้สูตร “ฮอต 50% + ค้าง 50%”
+ซึ่งสมมติไปเองว่ามี bias อยู่ ทั้งที่ยังไม่เคยตรวจว่าข้อมูลรองรับหรือเปล่า
+ข้อสรุปคือให้ **ข้อมูลเป็นคนตัดสินว่าจะเอียงแค่ไหน** และเมื่อคำตอบออกมาว่า “ไม่ควรเอียงเลย”
+ก็ต้องยอมให้เครื่องปั่นสุ่มแบบ uniform — พร้อมเก็บสูตรเดิมไว้ในตารางทดสอบย้อนหลัง
+เพื่อให้เห็นกับตาว่ามันทำคะแนนได้ต่ำกว่าการสุ่ม
+
 ## License
 
-[MIT](LICENSE)
+**[MIT](LICENSE)** — เอาไปใช้ แก้ไข ต่อยอด หรือใส่ในของที่ขายก็ได้ ขอแค่ติดประกาศลิขสิทธิ์ไปด้วย
+ไม่มีเงื่อนไขเชิงพาณิชย์แยกต่างหาก
+
+สิ่งที่ **ไม่ได้** อยู่ใต้สัญญาอนุญาตนี้: ข้อมูลผลรางวัลเป็นของสำนักงานสลากกินแบ่งรัฐบาล (GLO)
+ซึ่งเป็นข้อมูลสาธารณะ, รูปมาสคอต และเครื่องหมายการค้าใด ๆ ที่ปรากฏบนเว็บ
+
+## สนับสนุนงานนี้
+
+เว็บนี้ฟรี ไม่มีโฆษณา ไม่มี tracker และจะเป็นแบบนั้นต่อไป ถ้ามันมีประโยชน์กับคุณ ขอบคุณได้ที่:
+
+- [GitHub Sponsors](https://github.com/sponsors/captainkie)
+- [Buy Me a Coffee](https://buymeacoffee.com/captainkiez)
+
+รายงานบั๊กพร้อมวิธีทำซ้ำ มีค่าเท่ากับเงิน และใช้เงินน้อยกว่า
+
+ติดต่อ **Fosivo Labs Co., Ltd.** — <https://fosivo.com>
