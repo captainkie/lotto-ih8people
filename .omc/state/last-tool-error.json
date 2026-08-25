@@ -1,7 +1,0 @@
-{
-  "tool_name": "mcp__plugin_playwright_playwright__browser_navigate",
-  "tool_input_preview": "{\"url\":\"https://lotto.ih8people.xyz/\"}",
-  "error": "### Error\nError: browserBackend.callTool: net::ERR_NAME_NOT_RESOLVED at https://lotto.ih8people.xyz/\nCall log:\n\u001b[2m  - navigating to \"https://lotto.ih8people.xyz/\", waiting until \"domcontentloaded\"\u001b[22m",
-  "timestamp": "2026-07-02T08:15:33.837Z",
-  "retry_count": 2
-}

@@ -40,3 +40,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# agent / tooling scratch state (contains local paths + session metadata)
+.omc/
+.playwright-mcp/
